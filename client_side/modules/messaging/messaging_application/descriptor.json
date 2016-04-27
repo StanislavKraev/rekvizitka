@@ -1,0 +1,13 @@
+{
+    "name" : "messaging_application",
+    "ver" : "1.0.0",
+    "std_requires" : [{
+        "name" : "messaging_application__init",
+        "path" : "/messages/i/",
+        "dynamic" : true
+    }],
+    "requires" : ["tab-view", "template-store", "utils"],
+    "templates" : ["basic_layout"],
+    "locales" : ["en", "ru"],
+    "css" : ["messaging_application"]
+}

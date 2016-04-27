@@ -1,0 +1,5 @@
+{
+    "name" : "locales_global",
+    "locales" : [ "ru", "en" ],
+    "ver" : "1.0.3"
+}

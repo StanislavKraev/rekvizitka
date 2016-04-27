@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="/media/css/rek_static.css"/>
+{% endblock %}
+
+{% block title %}Завершение регистрации - Rekvizitka.Ru{% endblock %}
+
+{% block content %}
+    <div class="width_limiter">
+    <h1>Завершение регистрации</h1>
+    <p class="description">Для завершения регистрации осталось лишь оплатить <a href="/profile/registration_bill.pdf">счёт</a>,
+    необходимый для подтверждения данных о вашей компании.</p>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="width_limiter">&copy; 2010&nbsp;&ndash;&nbsp;2011 Rekvizitka.Ru<a href="/media/offer.doc" style="display:block;float:right;font-size:16px;margin-right: 100px;">Оферта</a></div>
+{% endblock %}

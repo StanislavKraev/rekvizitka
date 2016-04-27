@@ -1,0 +1,33 @@
+<div class="correspondent">
+    <table>
+        <tr>
+            <td class="column1"><span class="icon net-status online"></span><a href="<%=employee_url%>" title="<%-corrname%>" class="name"><%-corrname%></a></td>
+            <td rowspan="2"><a href="<%=employee_url%>" class="round"><img src="<%=mini_logo_url%>" width="31" height="31"></a></td>
+        </tr>
+        <tr>
+            <td class="column1"><a href="<%=company_url%>" title="<%-bname%>" class="brand-name"><%-bnamecut%></a></td>
+        </tr>
+    </table>
+</div>
+<h4 class="header"><%-loc_view_dialog%></h4>
+
+<p class="text-center showmore"><a><%-loc_show_previous%> &uarr;</a></p>
+
+<ul class="messages"></ul>
+
+<table class="write-message-block">
+    <tr>
+        <td class="column1">
+            <a href="<%=employee_url%>" title="<%-corrname%>" class="round"><img src="<%=dialog_logo_url%>" width="48" height="48" alt=""></a>
+        </td>
+        <td class="column2">
+            <textarea placeholder="<%-loc_enter_message%>" id="chat_message_ta"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="column2">
+            <a class="button action" id="send_message_btn"><%-loc_send%></a>
+        </td>
+    </tr>
+</table>

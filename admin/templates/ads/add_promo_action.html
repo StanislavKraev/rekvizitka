@@ -1,0 +1,40 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+    <link href="/media/css/south-street/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/media/js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/ads/">Рекламные, промо-акции</a></h3>
+    <h4>Добавление промо-акции</h4>
+    <form method="POST" class="form">
+    {% csrf_token %}
+        <dl>
+            <dt><label for="comment">Комментарий:</label></dt>
+            <dd>{% if errors.comment %}<div style="color:red;font-size: small">{{ errors.comment }}</div>{% endif %}
+                <input type="text" name="comment" id="comment" style="width: 600px" value="{{ comment }}"/></dd>
+
+            <dt><label for="start_date">Дата начала акции:</label></dt>
+            <dd>{% if errors.start_date %}<div style="color:red;font-size: small">{{ errors.start_date }}</div>{% endif %}
+                <input type="text" name="start_date" id="start_date" value="{{ start_date }}"/></dd>
+
+            <dt><label for="duration">Срок действия (дни):</label></dt>
+            <dd>{% if errors.duration %}<div style="color:red;font-size: small">{{ errors.duration }}</div>{% endif %}
+                <input type="text" name="duration" id="duration" value="{{ duration }}"/></dd>
+
+            <dt><label for="amount">Стоимость (рубли):</label></dt>
+            <dd>{% if errors.amount %}<div style="color:red;font-size: small">{{ errors.amount }}</div>{% endif %}
+                <input type="text" name="amount" id="amount" value="{{ amount }}"/></dd>
+
+            <dt><label for="count">Кол-во кодов:</label></dt>
+            <dd>{% if errors.count %}<div style="color:red;font-size: small">{{ errors.count }}</div>{% endif %}
+                <input type="text" name="count" id="count" value="{{ count }}"/></dd>
+
+        </dl>
+        <input type="submit" name="add_promo_action" id="add_promo_action" value="Добавить"/>
+    </form>
+    <script type="text/javascript">
+        $( "#start_date" ).datepicker({ dateFormat: "dd-mm-yy", firstDay:1, minDate: 0 });
+    </script>
+{% endblock %}

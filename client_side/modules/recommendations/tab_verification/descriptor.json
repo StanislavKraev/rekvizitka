@@ -1,0 +1,9 @@
+{
+    "name" : "tab_verification",
+    "src" : "tab_verification",
+    "templates" : ["content","table","table_tr","ul","li","invoice"],
+    "requires" : [ "modalbox" ],
+    "locales" : ["ru", "en"],
+    "css" : ["style"],
+    "ver" : "1.1.13"
+}

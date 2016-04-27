@@ -1,0 +1,44 @@
+<div id="feedback">
+<table>
+    <tr>
+        <td class="column1">
+
+        </td>
+        <td class="column2">
+            <h1><%- header %></h1>
+        </td>
+    </tr>
+    <tr>
+        <td class="column1">
+
+        </td>
+        <td class="column2">
+            <p><%- intro_text %></p>
+        </td>
+    </tr>
+    <tr>
+        <td class="column1">
+            <label for="feedback-message"><%- feedback_message_label %></label>
+        </td>
+        <td class="column2">
+            <textarea id="feedback-message"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="column1">
+            <label for="feedback-email"><%- feedback_email_label %></label>
+        </td>
+        <td class="column2">
+            <input class="type-email" type="text" id="feedback-email" placeholder="Введите e-mail" value="<%- email %>">
+        </td>
+    </tr>
+    <tr>
+        <td class="column1">
+
+        </td>
+        <td class="column2">
+            <a class="button action send "><%- send %></a>
+        </td>
+    </tr>
+</table>
+</div>

@@ -1,0 +1,5 @@
+{
+    "name" : "profile_main_app",
+    "requires" : ["profile_application", "profile_about_view"],
+    "ver" : "1.0.8"
+}

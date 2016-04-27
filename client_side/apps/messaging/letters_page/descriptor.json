@@ -1,0 +1,5 @@
+{
+    "name" : "messaging_letters_app",
+    "requires" : ["messaging_application", "message_view", "mail_sidebar"],
+    "ver" : "0.0.2"
+}

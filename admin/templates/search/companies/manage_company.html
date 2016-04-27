@@ -1,0 +1,78 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/search/">Поиск, просмотр</a> &mdash; Редактирование компании {{ company.rek_id }}</h3>
+    <div id="company_data">
+    <a href="/search/companies/{{ company.rek_id }}/" title="Отмена" class="button">Отмена</a>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+        {% if errors.brand_name %}
+        <tr><td colspan="2" class="error">{{ errors.brand_name }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="brand_name">Бренд</label></td><td><input type="text" id="brand_name" name="brand_name" value="{{ company.brand_name }}"/></td>
+        </tr>
+{#        <tr>#}
+{#            <td>ОПФ</td><td>{{ company.inc_form_str }}</td>#}
+{#        </tr>#}
+        <tr>
+            <td><label for="short_name">Краткое наименование</label></td><td><input type="text" id="short_name" name="short_name" value="{{ company.short_name}}"/></td>
+        </tr>
+        <tr>
+            <td><label for="full_name">Полное наименование</label></td><td><input type="text" id="full_name" name="full_name" value="{{ company.full_name }}"/></td>
+        </tr>
+        <tr>
+            <td><label for="description">Описание</label></td><td><textarea id="description" name="description">{{ company.description }}</textarea></td>
+        </tr>
+{#        <tr>#}
+{#            <td>Лого</td><td style="padding: 0">#}
+{#                    <img src="{% if company.logo_url %}{{ company.logo_url }}{% else %}/media/i/default_image.png{% endif %}">#}
+{#                </td>#}
+{#        </tr>#}
+        {% if errors.inn %}
+            <tr><td colspan="2" class="error">{{ errors.inn }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="inn">ИНН</label></td><td><input type="text" id="inn" name="inn" value="{{ company.inn }}"/></td>
+        </tr>
+        {% if errors.kpp %}
+            <tr><td colspan="2" class="error">{{ errors.kpp }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="kpp">КПП</label></td><td><input type="text" id="kpp" name="kpp" value="{{ company.kpp }}"/></td>
+        </tr>
+{#        <tr>#}
+{#            <td>Вид деятельности</td><td>{{ company.category_text }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Создана</td><td>{{ company.date_creation }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Основана</td><td>{{ company.date_established }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Штат</td><td>{{ company.staff_size }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Ген. директор</td><td>{{ company.gen_director }}</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>Главный бухгалтер</td><td>{{ company.chief_accountant }}</td>#}
+{#        </tr>#}
+    </table>
+<input type="submit" value="Сохранить" name="modify" class="modify"/><a href="/search/companies/{{ company.rek_id }}/" title="Отмена" class="button">Отмена</a>
+    <ul style="list-style-type: square;color: blue">
+        {% if company.account_status == "just_registered" %}
+        <li><a href="/search/companies/{{ company.rek_id }}/verify_invoice/" title="Верифицировать" class="button">Верифицировать</a></li>
+        {% endif %}
+        {% if company.account_status == "verified" %}
+            <li><a href="/search/companies/{{ company.rek_id }}/verify_invoice/" title="Отменить верификацию" class="button">Отменить верификацию</a></li>
+        {% endif %}
+    </ul>
+    </form>
+    </div>
+{% endblock %}

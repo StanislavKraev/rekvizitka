@@ -1,0 +1,174 @@
+#company-header {
+	position: relative;
+    padding : 16px 0 0 18px;
+    height : 64px;
+    overflow : hidden;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+    #company-header {
+        padding-left:19px;
+    }
+}
+
+#company-header table,
+#company-header table .cch-titles{
+    width:100%;
+}
+#company-header .cch-recommendations{
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: top;
+    padding-right: 20px;
+}
+#company-header .cch-recommendations a{
+    padding-top: 3px;
+    padding-bottom: 5px;
+    display: block;
+}
+#company-header .cch-recommendations a:link,
+#company-header .cch-recommendations a:visited{
+    text-decoration: none;
+}
+#company-header .cch-recommendations a:hover,
+#company-header .cch-recommendations a:active{
+    text-decoration: underline;
+}
+
+
+
+#company-header h1 {
+	font-size:24px;
+	font-weight:bold;
+	margin: 0 0 8px;
+	padding: 0;
+	color : #6ea331;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+    #company-header h1 {
+        margin: 1px 0 7px;
+    }
+}
+
+#company-header p {
+	color:#6e6e6e;
+	font-size:13px;
+	margin-bottom : 16px;
+	padding: 0;
+}
+
+/*	buttons		*/
+
+#company-header .edit_button{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+#company-header .edit_button .button.edit{
+		display: inline-block;
+		width: 110px;
+		height: 23px;
+		line-height: 23px;
+		margin:0;
+
+		border:1px solid #9e9e9e;
+
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+
+		background: #e1e1e1;
+		background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fdfdfd), to(#e1e1e1));
+		background: -webkit-linear-gradient(#fdfdfd, #e1e1e1);
+		background: -moz-linear-gradient(#fdfdfd, #e1e1e1);
+		background: -ms-linear-gradient(#fdfdfd, #e1e1e1);
+		background: -o-linear-gradient(#fdfdfd, #e1e1e1);
+		background: linear-gradient(#fdfdfd, #e1e1e1);
+		-pie-background: linear-gradient(#fdfdfd, #e1e1e1);
+		behavior: url(/media/js/PIE.htc);
+
+		font-size:12px;
+		color:#525252;
+		text-decoration:none;
+		text-align:center;
+	}
+		#company-header .edit_button .button.edit:hover{
+			background: #e7e7e7;
+			background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fdfdfd), to(#e7e7e7));
+			background: -webkit-linear-gradient(#fdfdfd, #e7e7e7);
+			background: -moz-linear-gradient(#fdfdfd, #e7e7e7);
+			background: -ms-linear-gradient(#fdfdfd, #e7e7e7);
+			background: -o-linear-gradient(#fdfdfd, #e7e7e7);
+			background: linear-gradient(#fdfdfd, #e7e7e7);
+			-pie-background: linear-gradient(#fdfdfd, #e7e7e7);
+		}
+
+.verification-set{
+    position: absolute;
+    top : 20px;
+    right : 10px;
+}
+
+.verification-set .button{
+	float:left;
+	
+	display: inline-block;
+	width: 190px;
+	margin:0 0 0 20px;
+
+	border:1px solid #88b265;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	text-shadow:#759f4d 1px 1px 1px;
+
+	background: #83a858;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#A0C675), to(#83a858));
+	background: -webkit-linear-gradient(#A0C675, #83a858);
+	background: -moz-linear-gradient(#A0C675, #83a858);
+	background: -ms-linear-gradient(#A0C675, #83a858);
+	background: -o-linear-gradient(#A0C675, #83a858);
+	background: linear-gradient(#A0C675, #83a858);
+	-pie-background: linear-gradient(#A0C675, #83a858);
+	behavior: url(/media/js/PIE.htc);
+
+	height: 40px;
+
+	line-height: 40px;
+	font-size:17px;
+	color:#fff;
+	text-decoration:none;
+	text-align: center;
+	}
+	#company-header .verification-set .button:hover{
+		background: #8fb35b;
+		background: -webkit-gradient(linear, 0 0, 0 bottom, from(#A0C675), to(#8fb35b));
+		background: -webkit-linear-gradient(#aacd7c, #8fb35b);
+		background: -moz-linear-gradient(#aacd7c, #8fb35b);
+		background: -ms-linear-gradient(#aacd7c, #8fb35b);
+		background: -o-linear-gradient(#aacd7c, #8fb35b);
+		background: linear-gradient(#aacd7c, #8fb35b);
+		-pie-background: linear-gradient(#aacd7c, #8fb35b);
+	}
+
+
+
+#company-header .verification-set .icon.settings{
+	float:left;
+	display:block;
+	width:30px;
+	height:30px;
+	margin-top: 6px;
+		
+	background:url(/media/css/icons.png) -120px -40px no-repeat;
+	text-indent:-1000em;
+}
+	#company-header .verification-set .icon.settings:hover{
+		background:url(/media/css/icons.png) -120px -80px no-repeat;
+	}

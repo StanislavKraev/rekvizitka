@@ -1,0 +1,6 @@
+{
+    "name" : "partners_application",
+    "css" : [ "partners_application" ],
+    "requires" : [ "tab-view", "template-store", "utils", "cch", "general_portlet", "partner_manager" ],
+    "ver" : "1.1.5"
+}

@@ -1,0 +1,45 @@
+.informer {
+    display: table;
+    width: 100%;
+    position: fixed;
+    top : 100px;
+    z-index:3
+}
+    .informer div {
+        display: table-cell;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+    }
+        .informer div div {
+            position: relative;
+            padding: 20px;
+            border: 1px solid #babc9c;
+            background-color: #f4f7c4;
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+        }
+            .informer div div a {
+                position: absolute;
+                top: 1px;
+                right: 0;
+                width: 20px;
+                height: 20px;
+                color: transparent;
+            }
+
+            .informer .manual {
+                display : block;
+                background: url("/media/css/icons.png") no-repeat -45px -160px transparent;
+            }
+
+            .informer .system {
+                display : none;
+            }
+
+            .informer div div p {
+                padding: 0;
+                font-size: 12px;
+                color: #545732;
+            }

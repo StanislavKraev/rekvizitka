@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Форма отправки сообщения</title>
+</head>
+<body>
+Что-нибудь здесь!
+<form action="/tornading/messages/send/" enctype="Multipart/form-data" method="post">
+    <input type="hidden" name="headers" value="headers"/>
+    <ul class="message_controls">
+        <li><label for="recipient">Кому</label>
+        <select id="recipient" name="recipient">
+            <option value="1" selected>1</option>
+            <option value="2" selected>2</option>
+        </select></li>
+        <li><label for="message_subject">Тема</label><input id="message_subject" maxlength="255" name="message_subject" type="text"/></li>
+        <li><label for="message_body">Сообщение</label><textarea name="message_body" id="message_body" cols="" rows=""></textarea></li>
+    </ul>
+    <div class="controls">
+        <div class="send_btn"></div>
+        <ul id="file-uploader">
+            <li>
+                <input type="file" name="file_1"/>
+                <input type="file" name="file_2"/>
+                <input type="file" name="file_3"/>
+                <div class="button">Добавить еще инпут</div>
+            </li>
+        </ul>
+    </div>
+    <input type="submit"/>
+</form>
+</body>
+</html>

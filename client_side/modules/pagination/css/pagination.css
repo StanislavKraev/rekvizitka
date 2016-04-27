@@ -1,0 +1,145 @@
+/*	PAGINATION		*/
+
+.pagination li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    background: none;
+    list-style: none;
+    border: 1px solid transparent;
+}
+
+/*.paginator a:hover,*/
+/*.pagination li:hover {*/
+    /*background-color: #ccc;*/
+    /*-webkit-border-radius: 3px;*/
+    /*-moz-border-radius: 3px;*/
+    /*border-radius: 3px;*/
+/*}*/
+
+.paginator a,
+.pagination li a {
+    display: inline-block;
+    padding: 1px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+}
+
+.paginator .current,
+.pagination li.current {
+    border-color: #88b265;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    background: #9EC66F;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#9EC66F), to(#81aa53));
+    background: -webkit-linear-gradient(#9EC66F, #81aa53);
+    background: -moz-linear-gradient(#9EC66F, #81aa53);
+    background: -ms-linear-gradient(#9EC66F, #81aa53);
+    background: -o-linear-gradient(#9EC66F, #81aa53);
+    background: linear-gradient(#9EC66F, #81aa53);
+    -pie-background: linear-gradient(#9EC66F, #81aa53);
+    behavior: url(/media/js/PIE.htc);
+}
+
+.paginator .current,
+.pagination li.current a {
+    color: #fff;
+}
+
+.paginator {
+    margin-top: 0;
+    margin-left:20px;
+    font-size: 1em;
+}
+
+.paginator table {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.paginator table td {
+    padding: 0;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.paginator table .tr-pages td {
+    padding: 0 1px;
+}
+
+
+.paginator .scroll_bar {
+    width: 100%;
+    height: 20px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.paginator .scroll_trough {
+    width: 100%;
+    height: 3px;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.paginator .scroll_thumb {
+    position: absolute;
+    z-index: 2;
+    width: 0;
+    height: 3px;
+    top: 0;
+    left: 0;
+    font-size: 1px;
+    background: #878787;
+}
+
+.paginator .scroll_knob {
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    background: url(/media/css/slider_knob.gif) no-repeat 50% 50%;
+    cursor: pointer;
+}
+
+.paginator .current_page_mark {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    overflow: hidden;
+    background: #878787;
+    background: #4A8B00;
+}
+
+.fullsize .scroll_thumb {
+    display: none;
+}
+
+.paginator_pages {
+    width: 600px;
+    text-align: right;
+    font-size: 0.8em;
+    color: #808080;
+    margin-top: -10px;
+}
+
+
+.paginator *{
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+    -ms-user-select:none;
+}

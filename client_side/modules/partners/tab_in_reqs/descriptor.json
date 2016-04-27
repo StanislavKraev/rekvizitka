@@ -1,0 +1,8 @@
+{
+    "name" : "tab_in_reqs",
+    "css" : [ "tab_in_reqs" ],
+    "templates" : [ "content", "listitem" ],
+    "requires" : [ "pagination" ],
+    "locales" : [ "en", "ru" ],
+    "ver" : "1.0.12"
+}

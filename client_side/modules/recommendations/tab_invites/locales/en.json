@@ -1,0 +1,11 @@
+{
+    "sentListHeader":"Sent invites:",
+    "registeredListText":"Registered",
+    "company":"companies",
+    "errorEmailExists" : "A company with this e-mail has already been registered in Rekvizitka",
+    "invitationSent" : "The invitation sent successfully",
+    "reenterEmail" : "Enter a correct e-mail please",
+    "reenterMessage" : "Enter your message please",
+    "errorCantSendInvite" : "Couldn't send the invitation",
+    "infoInvitationsSent" : "Invitations sent to"
+}

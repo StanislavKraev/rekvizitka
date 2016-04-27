@@ -1,0 +1,10 @@
+{
+    "name" : "mail-list",
+    "src" : "mail_list",
+    "requires" : ["template-store"],
+    "locales" : ["ru", "en"],
+    "templates" : ["mail_list", "mail_list_item"],
+    "css" : ["mail_list", "mail_list_item"],
+    "ver" : "1.0.0"
+
+}

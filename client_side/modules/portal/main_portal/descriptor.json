@@ -1,0 +1,7 @@
+{
+    "name" : "main_portal",
+    "locales" : ["en", "ru"],
+    "requires" : ["main_sidebar","main_header", "utils", "search_application", "informer", "modalbox", "global_notifier_core"],
+    "css" : ["main_portal"],
+    "ver" : "1.2.12"
+}

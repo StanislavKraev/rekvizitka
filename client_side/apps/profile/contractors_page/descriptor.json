@@ -1,0 +1,5 @@
+{
+    "name" : "profile_contractors_app",
+    "requires" : ["profile_application", "profile_contractors_view"],
+    "ver" : "1.0.3"
+}

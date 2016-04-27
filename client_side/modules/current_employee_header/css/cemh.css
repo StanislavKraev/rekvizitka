@@ -1,0 +1,21 @@
+#employee-header {
+    position: relative;
+    padding: 16px 20px 0 20px;
+    height : 64px;
+    overflow : hidden;
+}
+
+#employee-header h1 {
+    font-size:24px;
+    font-weight:bold;
+    margin: 0 0 5px;
+    padding: 0;
+    color:#484848;
+}
+
+#employee-header p {
+    color:#3f7700;
+    font-size:16px;
+    margin-bottom:12px;
+    padding: 0;
+}

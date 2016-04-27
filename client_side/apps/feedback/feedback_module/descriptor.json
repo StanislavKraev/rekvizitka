@@ -1,0 +1,5 @@
+{
+    "name" : "feedback_module",
+    "requires" : ["feedback_application"],
+    "ver" : "1.1.4"
+}

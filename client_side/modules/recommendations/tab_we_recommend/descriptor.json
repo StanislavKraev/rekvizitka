@@ -1,0 +1,7 @@
+{
+    "name" : "tab_we_recommend",
+    "src" : "tab_we_recommend",
+    "templates" : ["content", "ul", "li", "accepted_list"],
+    "css" : ["style"],
+    "ver" : "1.1.11"
+}

@@ -1,0 +1,7 @@
+{
+    "src" : "contacts_view",
+    "name" : "profile_contacts_view",
+    "templates" : ["content", "offices", "content_edit", "offices_edit", "content_bottom"],
+    "css" : ["contacts_view"],
+    "ver" : "1.2.2"
+}

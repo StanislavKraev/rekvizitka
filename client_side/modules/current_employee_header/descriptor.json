@@ -1,0 +1,7 @@
+{
+    "name" : "cemh",
+    "src" : "cemh",
+    "templates" : [ "content" ],
+    "css" : [ "cemh" ],
+    "ver" : "1.1.2"
+}

@@ -1,0 +1,6 @@
+{
+    "name" : "global_notifier_ui",
+    "requires" : ["global_notifier_core"],
+    "locales" : ["ru", "en"],
+    "ver" : "1.1.1"
+}

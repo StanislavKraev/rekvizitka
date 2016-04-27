@@ -1,0 +1,8 @@
+{
+    "name" : "tab_invites",
+    "src" : "tab_invites",
+    "templates" : ["content", "sent_list", "sent_list_li", "registered_list", "registered_list_li"],
+    "locales" : ["en", "ru"],
+    "css" : ["style"],
+    "ver" : "1.1.7"
+}

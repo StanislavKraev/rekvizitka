@@ -1,0 +1,24 @@
+    <li>
+
+<table>
+	<tr>
+		<td class="column1">
+            <a href="<%-company_url%>" title="<%-bname%>" class="round"><img src="<%-logo%>" width="60" height="31" alt=""></a>
+		</td>
+		<td class="column2">
+            <h5><a href="<%-company_url%>" title="<%-bname%>"><%-bname%></a></h5>
+            <%-kind_of_activity%>
+		</td>
+		<td class="column3">
+            <% if(request_status) { %>
+            <div class="icon-checked">Запрос отправлен<b></b></div>
+            <% }else{ %>
+            <a href="<%-req_url%>" title="Попросить данную компанию рекомендовать нас в Реквизитке" class="button action ask-for-recommend">Попросить рекомендацию</a>
+            <% } %>
+		</td>
+	</tr>
+</table>
+
+    </li>
+
+

@@ -1,0 +1,7 @@
+{
+    "name" : "tab_deposit",
+    "src" : "tab_deposit",
+    "templates" : ["content","table","table_tr"],
+    "css" : ["style"],
+    "ver" : "1.1.3"
+}

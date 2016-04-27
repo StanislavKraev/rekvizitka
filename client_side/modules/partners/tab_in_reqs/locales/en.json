@@ -1,0 +1,7 @@
+{
+    "requests_single" : "request",
+    "requests_plural" : "requests",
+    "you_have_many" : "You have",
+    "you_have_one" : "You have",
+    "no_incoming_requests" : "You have no incoming requests"
+}

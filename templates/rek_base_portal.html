@@ -1,0 +1,28 @@
+{% extends "base_portal.html" %}
+{% block title %}{% if company %}Реквизитка компании {{ company.get_name }} - REK №{{ company.code_view }}{% endif %}{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="/media/style/rek_base.css?v=10000"/>
+{% endblock %}
+
+{% block content %}
+    <div class="width_limiter">
+        <div id="sidebar"></div>
+        <div id="center_block"></div>
+    </div>
+{% endblock %}
+
+{% block doc_end %}
+    <script type="text/javascript">
+        $(function(){
+            var ApplicationRouter = new (Backbone.Router.extend({}));
+
+            YUI().use('main_portal', 'main_portal__init', function(Y){
+                Y.ApplicationRouter = ApplicationRouter;
+                var portal = new Y.MainPortal({
+                    sidebar : $("#sidebar"),
+                    centerBlock : $("#center_block"),
+                    companyRekId : '{{ company_rek_id }}'});
+            });
+        }());
+    </script>
+{% endblock %}

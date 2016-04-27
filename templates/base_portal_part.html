@@ -1,0 +1,102 @@
+<script type="text/javascript">    var ApplicationRouter = new (Backbone.Router.extend({})), RouterProxy;
+
+RouterProxy = function(){};
+
+var _hasPushState = !!(window.history && window.history.pushState);
+
+if (_hasPushState) {
+    $.extend(RouterProxy.prototype, {
+        rootUrl:'/',
+        route:function (url, name, callback) {
+            ApplicationRouter.route(url, name, callback);
+        },
+        navigate:function (url, obj) {
+            ApplicationRouter.navigate(url, obj);
+        },
+        updateRoute:function (url) {
+            var fullURL = url;
+
+            if (typeof(url) === 'string' && url.indexOf('/') !== 0) {
+                fullURL = '/' + url;
+            }
+
+            return fullURL;
+        }
+    });
+} else {
+    $.extend(RouterProxy.prototype, {
+        routes: {},
+        rootUrl: '/',
+        notPushState : !_hasPushState,
+        route:function (url, name, callback) {
+            this.routes[url] = {
+                'urlRE' : url,
+                'name' : name,
+                'callback' : callback};
+        },
+
+        start:function() {
+            var url = window.location.pathname, route, res, urlRE;
+            if (url.length && url.indexOf('/') === 0) {
+                url = url.substring(1);
+            }
+
+            for (route in this.routes) {
+                if (this.routes.hasOwnProperty(route)) {
+                    urlRE = this.routes[route].urlRE;
+                    if (urlRE instanceof String) {
+                        if ((urlRE === url)) {
+                            this.routes[route].callback();
+                            return;
+                        }
+                    } else if (urlRE instanceof RegExp) {
+                        if (this.routes[route].callback) {
+                            res = urlRE.exec(url);
+                            if (res) {
+                                if (res.length > 1) {
+                                    this.routes[route].callback(res[1]);
+                                } else {
+                                    this.routes[route].callback();
+                                }
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        navigate:function (url, obj) {
+            var route, urlRE, correctUrl = url;
+            if (url.indexOf('/') === 0) {
+                correctUrl = url.substring(1);
+            }
+
+            for (route in this.routes) {
+                if (this.routes.hasOwnProperty(route)) {
+                    urlRE = this.routes[route].urlRE;
+                    if (urlRE instanceof String) {
+                        if ((urlRE === correctUrl)) {
+                            window.location.replace('/' + correctUrl);
+                        }
+                    } else if (urlRE instanceof RegExp) {
+                        if (urlRE.test(correctUrl)) {
+                            window.location.replace('/' + correctUrl);
+                        }
+                    }
+                }
+            }
+        },
+
+        updateRoute:function (url) {
+            var fullURL = url;
+
+            if (typeof(url) === 'string' && url.indexOf('/') !== 0) {
+                fullURL = '/' + url;
+            }
+
+            return fullURL;
+        }
+    });
+}
+</script>

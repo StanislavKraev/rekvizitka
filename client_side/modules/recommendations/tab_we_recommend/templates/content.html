@@ -1,0 +1,13 @@
+<% if (own) { %>
+<p class="intro-text">Любая компания может попросить вашу рекомендацию. Настоятельно советуем давать рекомендации только тем компаниям, с которыми вы уже работаете или в которых вы лично знаете людей, принимающих решения.</p>
+<% } %>
+
+<% if (not_accepted_header !== '') { %>
+    <h4 id="requested_header_title"><%-not_accepted_header%></h4>
+<% } %>
+
+<ul class="recommendations list">
+</ul>
+
+<p id="accepted-list-container"><span id="accepted_header_title"><%-accepted_header%></span> <span class="accepted-list"></span></p>
+

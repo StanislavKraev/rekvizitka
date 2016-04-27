@@ -1,0 +1,64 @@
+#deposit{
+	padding: 35px 35px 50px 35px;
+	position:relative;
+}
+
+
+#deposit h3,
+#deposit h4,
+#deposit p,
+#deposit hr{
+	margin-left:15px;
+	margin-right:15px;
+}
+
+
+
+#deposit table{
+	width:100%
+}
+
+#deposit th{
+	padding:7px 15px 5px;
+	background-color:#e5ecee;
+	color:#116f85;
+	font-size:13px;
+	font-weight:normal;
+	text-align:left;
+	vertical-align: top;
+}
+	#deposit th a{
+		border-bottom:1px dashed;
+		color:#116f85;
+		position: relative;
+		text-decoration:none;
+	}
+		#deposit th a b{
+			width:7px;
+			height:5px;
+			display: block;
+			position: absolute;
+			right: -15px;
+			top: 35%;
+			background:url(/media/css/sort_arrows.png) 0 -7px no-repeat;
+		}
+
+#deposit td{
+	padding:12px 15px 4px;
+	color:#4f4f4f;
+	font-size:13px;
+	text-align:left;
+}
+	#deposit td:nth-child(2){
+		color:#3f7700;
+	}
+	#deposit td:nth-child(3){
+		color:#b03333;
+	}
+
+/*
+	#deposit tr:nth-child(odd) td{
+		background-color:#f2f2f2;
+	}
+*/
+

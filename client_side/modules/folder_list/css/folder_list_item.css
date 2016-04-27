@@ -1,0 +1,7 @@
+div.folder_list div a {
+    height: 20px;
+}
+
+div.folder_list div.selected {
+    background-color: #adff2f;
+}

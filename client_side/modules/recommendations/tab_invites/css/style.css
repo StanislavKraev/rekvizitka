@@ -1,0 +1,59 @@
+#invites{
+    padding: 40px 49px 35px;
+    position:relative;
+}
+
+/*  INVITES     */
+
+label[for]{
+    cursor: pointer;
+}
+
+
+
+#invites .row{
+    font-size: 13px;
+    margin-bottom:10px;
+}
+#invites .row label{
+    display: block;
+    line-height: 27px;
+    color: #000;
+}
+
+#invites .row input,
+#invites .row textarea{
+    background-color: #F7F7F7;
+    border: 1px solid #D3D3D3;
+    border-radius: 4px 4px 4px 4px;
+    color: #4f4f4f;
+    font-family: arial,sans-serif;
+    height: 28px;
+    line-height: 27px;
+    margin-bottom: 0;
+    padding: 0 10px;
+    width: 400px;
+}
+#invites .row textarea{
+    min-height: 185px;
+    padding: 5px 10px;
+    line-height: 1.4em;
+    width: 646px;
+}
+
+#invites .sent-invites-list{
+    padding-left: 0;
+}
+
+#invites .sent-list ul{
+    padding-left: 0;
+}
+#invites .sent-list li{
+    list-style: none;
+    background-image: none;
+}
+
+
+
+
+

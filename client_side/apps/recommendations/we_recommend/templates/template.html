@@ -1,0 +1,11 @@
+{% extends "apps/recommendations/template.html" %}
+
+{% load portal %}
+
+{% block preload_app %}
+    <script type="text/javascript" src="{% client_app_ver "tab_we_recommend" "ru" %}"></script>
+{% endblock %}
+
+{% block extra_head %}{{ block.super }}
+    <link href="{% client_app_css_ver "tab_we_recommend" "ru" %}" rel="stylesheet" type="text/css" />
+{% endblock %}

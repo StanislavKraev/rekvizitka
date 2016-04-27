@@ -1,0 +1,9 @@
+{
+    "name" : "main_header",
+    "templates" : ["main_header","main_header_unauth", "main_header_unauth_wrap"],
+    "locales" : ["en", "ru"],
+    "css" : ["main_header"],
+    "requires" : ["template-store", "global_notifier_ui"],
+    "ver" : "1.1.8"
+
+}

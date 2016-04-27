@@ -1,0 +1,25 @@
+<% if (bill_created) { %>
+<table>
+    <caption>Вам выставлен счет <%-number%> от <%-issued%></caption>
+    <tr>
+        <th>Услуга</th>
+        <th>Сумма, руб.</th>
+        <th>Статус</th>
+    </tr>
+    <tr>
+        <td><%-service_title%></td>
+        <td><%-price%></td>
+        <td><%-status%></td>
+    </tr>
+</table>
+
+<p>
+    <a class="icon-text print" href="<%-url_print%>" target="_blank"><b/>Печать</a>
+    <a class="icon-text pdf" href="<%-url_pdf%>" target="_blank"><b/>PDF</a>
+    <a class="icon-text email send-bill-to-email" href="/send_verify_bill/"><b/>E-mail</a>
+</p>
+<% } else { %>
+<p class="overflow-hidden">
+    <a class="button action ask-check" href="/verification/place_bill/">Выписать счет</a>
+</p>
+<% } %>

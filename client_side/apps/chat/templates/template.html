@@ -1,0 +1,25 @@
+{% extends "base_portal.html" %}
+{% load js_utils portal %}
+
+{% block doc_end %}
+    <script type="text/javascript">
+        YUI.add('main_portal__init', function(Y,result) {
+            Y.Chat_init = {{ chat_module_init }};
+
+            Y.MainPortal__init = {
+                mainPortlet : "{% client_mod_ver "chat_application" %}",
+                mainPortletClass : "ChatApplicationView"
+            };
+        });
+
+    </script>
+
+    {% block preload_app %}{% endblock %}
+
+    {{ block.super }}
+
+{% endblock %}
+
+{% block extra_head %}{{ block.super }}
+
+{% endblock %}

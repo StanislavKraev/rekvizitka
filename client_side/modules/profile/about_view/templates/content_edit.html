@@ -1,0 +1,90 @@
+<div class="edit-mode">
+
+<h3>Описание</h3>
+
+<textarea id="descr"><%=descrHTML%></textarea>
+
+<hr/>
+
+<h3>Общая информация</h3>
+
+    <% if (categoryElements.length) { %>
+    <ul class="checkbox-set">
+        <% for (var itemId = 0; itemId < categoryElements.length; itemId += 1) {
+        var item = categoryElements[itemId];
+        %>
+        <li>
+            <input id="ccat-<%=item.name%>" type="checkbox" name="<%=item.name%>" class="company_categories checkbox" <% if (item.val) { %> checked <% } %> >
+            <label for="ccat-<%=item.name%>" class="checkbox"><span></span><%-item.title%></label>
+        </li>
+        <% } %>
+    </ul>
+    <% } %>
+
+    <dl>
+	<dt>Торговое наименование</dt>
+	<dd><input type="text" id="brandName" value="<%-brandName%>" /></dd>
+
+	<dt>Юридическое наименование</dt>
+	<dd><input type="text" id="fullName" value="<%-fullName%>" /></dd>
+
+	<dt>ИНН</dt>
+	<dd><input type="text" id="inn" value="<%-inn%>" /></dd>
+
+	<dt>КПП</dt>
+	<dd><input type="text" id="kpp" value="<%-kpp%>" /></dd>
+
+	<dt>Вид деятельности</dt>
+	<dd><input type="text" id="categoryText" value="<%-categoryText%>" maxlength="80" /></dd>
+
+	<dt>Год основания</dt>
+	<dd><input type="text" id="estYear" value="<%-estYear%>" /></dd>
+
+	<dt>Штат компании</dt>
+	<dd>                    
+		<select id="staffSize">
+		<% for (i in staff_size_select){ %>
+			<option <% if(staffSize == i){ %> selected <% } %> value="<%= staff_size_select[i][0] %>"><%= staff_size_select[i][1] %></option>
+		<% } %>
+		</select>
+	</dd>
+
+    <dt>Руководитель компании</dt>
+	<dd><input type="text" id="genDir" value="<%-genDir%>" /></dd>
+
+	<dt>Главный бухгалтер</dt>
+	<dd><input type="text" id="genAcc" value="<%-genAcc%>" /></dd>
+
+</dl>
+
+<hr/>
+
+<h3>Реквизиты</h3>
+
+<dl>
+	<dt>Наименование банка</dt>
+	<dd><input type="text" id="bank_account-bank" value="<%-bank%>" /></dd>
+
+	<dt>Страна и город банка</dt>
+	<dd><input type="text" id="bank_account-bank_address" value="<%-bank_address%>" /></dd>
+
+	<dt>БИК</dt>
+	<dd><input type="text" id="bank_account-bik" value="<%-bik%>" /></dd>
+
+	<dt>Корреспондентский счёт</dt>
+	<dd><input type="text" id="bank_account-correspondent_account" value="<%-correspondent_account%>" /></dd>
+
+	<dt>Расчетный счёт</dt>
+	<dd><input type="text" id="bank_account-settlement_account" value="<%-settlement_account%>" /></dd>
+
+	<dt>Получатель</dt>
+	<dd><input type="text" id="bank_account-recipient" value="<%-recipient%>" /></dd>
+
+</dl>
+
+<div class="button-set">
+	<a href="" class="button action save">Сохранить</a>
+	<a href="" class="button simple cancel">Отмена</a>
+</div>
+
+</div>

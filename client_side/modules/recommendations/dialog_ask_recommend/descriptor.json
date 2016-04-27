@@ -1,0 +1,8 @@
+{
+    "name" : "dialog_ask_recommend",
+    "css" : [ "dialog" ],
+    "locales" : [ "en", "ru" ],
+    "templates" : [ "dialog" ],
+    "requires" : [ "modalbox", "utils" ],
+    "ver" : "1.0.2"
+}

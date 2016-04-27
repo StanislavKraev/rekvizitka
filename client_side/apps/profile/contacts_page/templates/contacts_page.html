@@ -1,0 +1,11 @@
+{% extends "apps/profile/templates/profile.html" %}
+
+{% load portal %}
+
+{% block preload_app %}
+    <script type="text/javascript" src="{% client_app_ver "contacts_main_app" "ru" %}"></script>
+{% endblock %}
+
+{% block extra_head %}{{ block.super }}
+    <link href="{% client_app_css_ver "contacts_main_app" "ru" %}" rel="stylesheet" type="text/css" />
+{% endblock %}

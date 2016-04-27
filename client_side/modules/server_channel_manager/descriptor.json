@@ -1,0 +1,5 @@
+{
+    "name" : "server_channel_manager",
+    "requires" : ["utils"],
+    "ver" : "1.0.1"
+}

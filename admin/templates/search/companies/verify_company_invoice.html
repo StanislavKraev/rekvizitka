@@ -1,0 +1,44 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Верификация компании</h3>
+    <div id="company_data">
+        <table>
+            <tr>
+                <td>Rek ID</td><td>{{ company.rek_id }}</td>
+            </tr>
+            <tr>
+                <td>Бренд</td><td>{{ company.brand_name }}</td>
+            </tr>
+            <tr>
+                <td>Статус</td><td style="background-color:{{ company.account_status_color }}">
+                {{ company.account_status }}</td>
+            </tr>
+            <tr>
+                <td>Создана</td><td>{{ company.date_creation }}</td>
+            </tr>
+        </table>
+
+        {% if error_str %}<div style="color:red;">{{ error_str }}</div>{% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            {% if company.verify %}
+                <h5><label for="invoice_select">Выберите оплаченный счет для верификации:</label></h5>
+                <div>
+                <select name="invoice_select" id="invoice_select">
+                {% for invoice in invoices %}
+                    <option value="{{ invoice.value }}">{{ invoice.title }}</option>
+                {% endfor %}
+                </select>
+                </div>
+                <input type="submit" name="verify" id="verify" value="Верифицировать" class="modify"/>
+            {% else %}
+                <input type="submit" name="unverify" id="unverify" value="Отменить верификацию" class="modify"/>
+            {% endif %}
+            <a href="/search/companies/{{ company.rek_id }}/" title="Отмена" class="button">Отмена</a>
+        </form>
+    </div>
+{% endblock %}

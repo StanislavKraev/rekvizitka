@@ -1,0 +1,5 @@
+{
+    "name" : "incoming_requests_app",
+    "requires" : [ "partners_application", "tab_in_reqs" ],
+    "ver" : "1.0.0"
+}

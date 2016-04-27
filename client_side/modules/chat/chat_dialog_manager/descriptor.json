@@ -1,0 +1,5 @@
+{
+    "name" : "chat_dialog_manager",
+    "requires" : [ "chat_models", "server_channel_manager" ],
+    "ver" : "1.1.5"
+}

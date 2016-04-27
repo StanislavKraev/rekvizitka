@@ -1,0 +1,7 @@
+{
+    "name" : "tab_our_proposers",
+    "src" : "tab_our_proposers",
+    "templates" : ["content","ul","li"],
+    "css" : ["style"],
+    "ver" : "1.1.8"
+}

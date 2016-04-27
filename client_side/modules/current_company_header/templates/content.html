@@ -1,0 +1,35 @@
+<div id="company-header">
+    <table>
+        <tr>
+            <td class="cch-titles">
+                <h1 title="<%-brandName%>"><%-brandNameCut%></h1>
+                <p>№ <%-rekid%> <span title="<%-categoryText%>"><%-categoryTextCut%></span></p>
+            </td>
+
+            <% if(authorized) { %>
+                <% if(own) { %>
+                    <td class="cch-ver-button">
+                        <div class="verification-set">
+                            <a href="/settings/" title="<%-locales.settings%>" class="icon settings"><%-locales.settings%></a>
+                            <% if(!verified) { %>
+                                <a href="/verification/" title="<%-locales.verification%>" class="button"><%-locales.verification%></a>
+                            <% } %>
+                        </div>
+                    </td>
+                <% } else { %>
+                    <td class="cch-recommendations">
+                        <a title="<%-my_title_recommend%>" href="<%=my_action_recommend%>" id="cch-recommend-our"><%-my_text_recommend%></a>
+                        <% if(!have_others_recommend && they_verified) { %>
+                            <a title="Запросить рекомендацию" href="/recommendations/ask/<%=rekid%>/" id="cch-recommend-their">Запросить рекомендацию</a>
+                        <% } %>
+                    </td>
+                <% } %>
+            <% } %>
+
+        </tr>
+    </table>
+</div>
+
+<div id="tabs_container">
+    <div id='tabs'></div>
+</div>

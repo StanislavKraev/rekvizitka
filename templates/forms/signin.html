@@ -1,0 +1,78 @@
+{% extends "layouts/auth.html" %}
+
+{% block title %}Авторизация - Rekvizitka.Ru{% endblock %}
+
+
+{% block content %}
+
+    {% if login_error %}
+        <p class="error">
+            Вы ввели ошибочный логин или пароль. Попробуйте ещё раз.
+        </p>
+    {% endif %}
+
+    {% if login_disabled %}
+        <p class="error">
+            Указанная учётная запись в данный момент отключена.
+        </p>
+    {% endif %}
+
+    {% if login_success %}
+        <p class="success">
+            <strong>Здраствуйте,<br/>{{ user.first_name }} {{ user.last_name }}!</strong>
+            <br/>
+            <br/>
+            Сейчас вы будете перенаправлены на <a href="/company">страницу вашей реквизитки</a>
+        </p>
+    {% else %}
+        <form action="" method="POST" class="login_form">
+        {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="id_username">логин (e-mail)</label>
+                    {{ form.username }}
+                    {% comment %}
+                    {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <label for="id_username" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                    {% endcomment %}
+                </li>
+                <li>
+                    <label for="id_password">пароль</label>
+                    {{ form.password }}
+                    {% comment %}
+                    {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                            <label for="id_password" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                    {% endcomment %}
+                </li>
+                <li class="buttons">
+                    <button type="submit" class="single_submit">Войти</button>
+                </li>
+            </ul>
+
+        </form>
+    {% endif %}
+
+{% endblock %}
+
+{% block hints %}
+    {% if login_success %}
+        <h4>Произошла ошибка?</h4>
+        <ul>
+            <li><a href="/profile">К профилю</a></li>
+            <li><a href="/company">К реквизитке</a></li>
+            <li><a href="/">На главную</a></li>
+        </ul>
+    {% else %}
+        <h4>Затруднения?</h4>
+        <ul>
+            <li><a href="/password_reset">Вспомнить пароль</a></li>
+            <li><a href="/signup">Зарегистрироваться</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}

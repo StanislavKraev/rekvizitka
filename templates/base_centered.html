@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}Реквизитка{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link href="/media/favicon.ico" rel="shortcut icon"/>
+
+    <link href="/dmedia/css/base.css?v=3" rel="stylesheet"/>
+
+    <script src="/dmedia/js/base.js?v=3"></script>
+
+    {% block extra_head %}{% endblock %}
+
+    <link href="/dmedia/css/homepage.css" rel="stylesheet"/>
+
+    <link href="/media/css/opera.css" rel="stylesheet" />
+
+    <!--[if IE]>
+    <link href="/media/css/ie.css" rel="stylesheet"/>
+	<script src="/media/js/jquery.placeholder.min.js"></script>
+	<script src="/media/js/jquery.textshadow.min.js"></script>
+	<script src="/media/js/ie.js"></script>
+    <![endif]-->
+
+    <!--[if IE 8]>
+	<link href="/media/css/ie8.css" rel="stylesheet" />
+	<script src="/media/js/ie8.js"></script>
+	<script src="/media/js/html5.js"></script>
+    <![endif]-->
+
+    <!--[if IE 9]>
+	<link href="/media/css/ie9.css" rel="stylesheet" />
+    <![endif]-->
+
+</head>
+
+<body id="homepage" class="beforelogin">
+<div class="wrap">
+
+    <div class="layout no-right-sidebar no-left-sidebar">
+        <div class="layout-container">
+            <div class="layout-container-c-s">
+                <div class="layout-container-c">
+                    <div class="layout-content">
+                        <div id="content">
+                            <table>
+                                <tr>
+                                    <td class='column1'>
+                                        {% block message_controls %}
+                                        {% endblock %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/layout-content-->
+                </div>
+                <div class="layout-sidebar"><!--right layout-sidebar-->
+                    <div id="right-sidebar">
+                    </div>
+                </div>
+                <!--/right layout-sidebar-->
+            </div>
+        </div>
+        <div class="layout-sidebar"><!--left layout-sidebar-->
+            <div id="left-sidebar">
+            </div>
+        </div>
+        <!--/left layout-sidebar-->
+    </div>
+    <!--/layout-->
+
+    <footer>
+        <hr/>
+        <table>
+            <tr>
+                <td>
+                    Реквизитка &copy; 2011&nbsp;&mdash;&nbsp;2012
+                </td>
+                <td class="width100">
+                </td>
+                <td>
+                    <a href="/feedback/" title="">Обратная связь</a>
+                </td>
+                <!--<td>
+                    <a href="" title="">Оферта</a>
+                </td>-->
+            </tr>
+        </table>
+    </footer>
+
+</div>
+<!--/wrap-->
+
+<header>
+    <div class="part-static">
+        <div class="brackets">
+            <table>
+                <tr>
+                    <td class="logo">
+                        <a href="http://{{ SITE_DOMAIN_NAME }}" title="http://{{ SITE_DOMAIN_NAME }}"><img
+                                src="/media/i/rekvizitka_logo.png" alt="Реквизитка" width="136" height="24"/></a>
+                    </td>
+                    <td class="search-box">
+                        <form action="/search/">
+                            <input type="text"
+                                   class="text"
+                                   placeholder="Поиск"
+                                   name="q"
+                                   onkeyup="if(this.value.length){this.style.color='#000';}else{this.style.color='#9e9e9e';}"/>
+                            <input type="submit" class="loupebutton" value="" name="lb"/>
+                        </form>
+                    </td>
+                    <td class="sub-menu-item"><a href="/search/?q=" title="">Компании</a></td>
+                    <!--	<td class="sub-menu-item"><a href="" title="">Сообщества</a></td>
+                 <td class="sub-menu-item"><a href="" title="">Тендеры</a></td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="part-dynamic">
+        <div class="brackets">
+            <div class="logged-out">
+                <form action='/' method='post' class="login-form">{% csrf_token %}
+                    {% load bases_tags %}{% logged_out %}
+                    <input type='hidden' value='' name='login' />
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br class="clear"/>
+</header>
+
+<script>
+    $(document).ready(function () {
+        if($.browser.webkit){
+
+            $('header input[placeholder]').each(function(){
+                var placeholder = $(this).attr('placeholder');
+
+                $(this).focus(function(){
+                    $(this).attr('placeholder','');
+                }).blur(function(){
+                            $(this).attr('placeholder',placeholder);
+                        })
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

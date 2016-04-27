@@ -1,0 +1,7 @@
+{
+    "name" : "profile_application",
+    "requires" : [ "tab-view", "template-store", "utils", "cch", "test_server_data", "general_portlet", "informer" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "profile_application" ],
+    "ver" : "1.6.8"
+}

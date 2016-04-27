@@ -1,0 +1,5 @@
+{
+    "name" : "dialog",
+    "requires" : [ "chat_application", "chat_dialog_view" ],
+    "ver" : "1.0.2"
+}

@@ -1,0 +1,5 @@
+{
+    "name" : "tab_our_proposers",
+    "requires" : ["recommendations_application", "tab_our_proposers"],
+    "ver" : "1.1.8"
+}

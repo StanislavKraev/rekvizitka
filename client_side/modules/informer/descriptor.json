@@ -1,0 +1,6 @@
+{
+    "name" : "informer",
+    "templates" : [ "informer" ],
+    "css" : [ "informer" ],
+    "ver" : "1.1.2"
+}

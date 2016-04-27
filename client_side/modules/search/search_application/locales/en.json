@@ -1,0 +1,6 @@
+{
+    "resultlist" : "Search results:",
+    "empty_resultlist" : "No matches found by your request. Try to change it.",
+    "errorInitSearch" : "A search initialization error occured",
+    "defaultSearchFieldText" : "Type a name or a scope of action"
+}

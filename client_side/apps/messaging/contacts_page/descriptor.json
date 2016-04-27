@@ -1,0 +1,5 @@
+{
+    "name" : "messaging_contacts_app",
+    "requires" : ["messaging_application", "contacts_view", "contacts_sidebar"],
+    "ver" : "0.0.2"
+}

@@ -1,0 +1,18 @@
+<div class="icon-set">
+	<a href="" class="icon pdf">pdf</a>
+	<a href="" class="icon print">print</a>
+</div>
+
+<% if (own_company){ %>
+<div class="edit_button">
+    <a href="" class="button simple edit">Редактировать</a>
+</div>
+<% } %>
+
+<p>
+	Телефон: <% if(phone === '') { %>не указан<% } else { %><%-phone%><% } %><br/>
+	E-mail: <% if(email === '') { %>не указан<% } else { %><a href="mailto:<%-email%>" title="<%-email%>"><%-email%></a><% } %><br/>
+	Сайт: <% if(site === '') { %>не указан<% } else { %><a href="<%-site%>" target="_blank" title="<%-site%>"><%-site%></a><% } %>
+</p>
+
+

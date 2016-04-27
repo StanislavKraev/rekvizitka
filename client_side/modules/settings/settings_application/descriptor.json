@@ -1,0 +1,7 @@
+{
+    "name" : "settings_application",
+    "requires" : [ "tab-view", "template-store", "utils", "cch", "test_server_data", "general_portlet", "informer" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "settings" ],
+    "ver" : "1.3.7"
+}

@@ -1,0 +1,47 @@
+.logged-out .submit {
+    text-shadow: #759f4d 1px 1px 0;
+}
+
+.logged-out input.text,
+.logged-out input.password{
+    margin-bottom: 4px;
+}
+
+.reg-form .submit {
+    text-shadow: #759f4d 1px 1px 0;
+}
+
+#tiptip_content {
+    padding: 6px 10px 7px;
+}
+
+.ndash{
+    width:8px;
+    padding-left:1px;
+    display: inline-block;
+}
+
+
+.reg-form input[type=text],
+.reg-form input[type=password] {
+    /*padding-top: 1px;*/
+    /*height:25px;*/
+
+    padding-left: 11px;
+    width: 297px;
+}
+
+input.error {
+    margin: 0 0 4px;
+}
+
+input ~ div.error {
+    margin: 0 0 8px;
+    line-height: 15px;
+}
+
+.intro-text{
+    height:70px;
+    padding-top:45px;
+    padding-left: 2px;
+}

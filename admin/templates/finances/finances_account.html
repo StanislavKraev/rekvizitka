@@ -1,0 +1,53 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/finances/accounts/">Финансы - аккаунты</a></h3>
+
+    <dl>
+        <dt>Тип аккаунта:</dt>
+        <dd>{{ account.type }} ({{ account.human_type }})</dd>
+
+        <dt>Наименование:</dt>
+        <dd>{{ account.name }}</dd>
+
+        <dt>Баланс:</dt>
+        <dd>{{ account.balance }}</dd>
+
+        {% if account.company_name %}
+        <dt>Компания:</dt>
+        <dd><a href="{{ account.company_url }}">{{ account.company_name }}</a></dd>
+        {% endif %}
+    </dl>
+
+    {% if transactions|length %}
+    <table>
+    <thead>
+    <tr>
+        <th>Запущена</th>
+        <th>Выполнена</th>
+        <th>Комментарий</th>
+        <th>Сумма</th>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Статус</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.started }}</td>
+            <td>{{ transaction.finished }}</td>
+            <td>{{ transaction.comment }}</td>
+            <td>{{ transaction.amount }} руб.</td>
+            <td>{{ transaction.source }}</td>
+            <td>{{ transaction.dest }}</td>
+            <td style="background-color: {{ transaction.human_state.1 }}">{{ transaction.human_state.0 }} ({{ transaction.state }})</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

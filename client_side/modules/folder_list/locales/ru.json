@@ -1,0 +1,8 @@
+{
+    "FolderList" : "список папок",
+    "InboxFolder": "входящие",
+    "OutboxFolder": "исходящие",
+    "SpamFolder": "спам",
+    "DraftFolder": "черновик",
+    "DeletedFolder": "корзина"
+}

@@ -1,0 +1,13 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Финансы</h3>
+    <ol>
+        <li><a href="/finances/accounts/">Аккаунты</a></li>
+        <li><a href="/finances/invoice_pay/">Оплата счета</a></li>
+        <li><a href="/finances/deposit_transfer/">Перевод на депозит</a></li>
+    </ol>
+{% endblock %}

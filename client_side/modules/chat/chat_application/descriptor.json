@@ -1,0 +1,8 @@
+{
+    "name" : "chat_application",
+    "requires" : [ "cemh", "utils", "chat_dialog_manager", "chat_models", "tab-view",
+                   "chat_dialog_list_view", "chat_dialog_view", "general_portlet" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "chat_application" ],
+    "ver" : "1.2.7"
+}

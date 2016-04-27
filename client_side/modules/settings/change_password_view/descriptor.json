@@ -1,0 +1,10 @@
+{
+    "name" : "change_password_view",
+    "src" : "change_password_view",
+    "locales" : [ "en", "ru" ],
+    "templates" : [ "content" ],
+    "requires" : [ "informer", "locales_global" ],
+    "css" : [ "change_password_view" ],
+    "ver" : "1.0.1"
+
+}

@@ -1,0 +1,10 @@
+{
+    "name" : "folder-list",
+    "src" : "folder_list",
+    "requires" : ["template-store"],
+    "locales" : ["ru", "en"],
+    "templates" : ["folder_list", "folder_list_item"],
+    "css" : ["folder_list", "folder_list_item"],
+    "ver" : "1.0.0"
+
+}

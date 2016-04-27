@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}{% if company %}Реквизитка компании {{ company.get_name }} - REK №{{ company.code_view }}{% endif %}{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="/media/css/rek_base.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/media/css/print_rek.css"media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/media/css/print.css" media="print"/>
+    <script type="text/javascript" src="http://api-maps.yandex.ru/1.1/index.xml?key=ACVSuk4BAAAAi2cdcgIA8JpaVJbKmfDgSbkqnGBHUcFBeb8AAAAAAAAAAAC8h0atG6y9ePY8chMd3T7qLwawqw==" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+<div class="width_limiter">
+    <div class="print_button" onclick="javascript:window.print();">&nbsp;</div>
+    <div class="rek_content">
+            <img class="company_logo" src="{{ company.get_logo.url }}" width="{{ company.get_logo.width }}" height="{{ company.get_logo.height }}">
+        <div class="title_block">
+            <p class="title">{{ company.get_name|safe }}</p>
+            <p class="it_gr">REK-визитка № <span class="green">{{ rek_code }}</span></p>
+        </div>
+        <p class="description" style="padding-bottom: 20px;">{{ company.description }}</p>
+
+        <h2>Основное</h2>
+        <ul class="data">
+            <li class="odd"><span class="key">Полное наименование</span><span class="value">{{ company.get_full_name|safe }}</span></li>
+            <li><span class="key">Наименование</span><span class="value">{{ company.get_name|safe }}</span></li>
+            <li class="odd"><span class="key">Организационно-правовая форма</span><span class="value">{{ opf }}</span></li>
+            <li><span class="key">ИНН</span><span class="value">{{ company.inn }}</span></li>
+            <li class="odd"><span class="key">КПП</span><span class="value">{{ company.kpp }}</span></li>
+        </ul>
+
+        <h2>Дополнительное</h2>
+        <ul class="data">
+            <li class="odd"><span class="key">Вид деятельности</span>
+                <span class="value" id="category_text">{% if company.category_text %}{{ company.category_text }}{% else %}Не
+                указан{% endif %}</span></li>
+            <li>
+                <span class="key">Год основания</span>
+                <span class="value">{% if company.date_creation %}{{ company.date_creation|date:"Y" }}{% else %}Не указан{% endif %}</span>
+            </li>
+            <li class="odd">
+                <span class="key">Штат компании</span>
+                <span class="value">{% if company.staff_size %}{{ company.staff_size }}{% else %}Не указан{% endif %}</span>
+            </li>
+        </ul>
+
+        <h2>Контакты</h2>
+        <ul class="data">
+            {% if not own %}
+                {% for address in company_addresses %}
+                    <li class="odd">
+                        <span class="key">{{ address.address_type|capfirst }} адрес</span>
+                        <span class="value">
+                                        <div class="addr">{{ address.address }}</div>
+                                        <div class="maps">{{ address.address }}</div>
+                        </span>
+                    </li>
+                    {% if not preview %}
+                        {% for address_email in address.emails %}
+                            <li><span class="key">Email</span><span class="value"><a
+                                    href="mailto:{{ address_email }}">{{ address_email }}</a>
+                                {% if address_email.comment %}<br>{{ address_email.comment }}{% endif %}
+                            </span></li>
+                        {% endfor %}
+                        {% for address_phone in address.phones %}
+                            <li><span class="key">{{ address_phone.type }}</span><span class="value">{{ address_phone }}
+                                {% if address_phone.comment %}<br>{{ address_phone.comment }}{% endif %}
+                            </span></li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% for address in company_addresses %}
+                    <li class="odd"><span class="key">{{ address.address_type|capfirst }} адрес</span>
+                                    <span class="value">
+                                        <div class="addr">{{ address.address }}</div>
+                                        <div class="maps">{{ address.address }}</div>
+                                    </span>
+                    </li>
+                    {% for address_email in address.emails %}
+                        <li>
+                            <span class="key"><label for="address1_email1">Email</label></span>
+                            <span class="value"><a href="mailto:{{ address_email }}">{{ address_email }}</a>
+                            {% if address_email.comment %}<br>{{ address_email.comment }}{% endif %}</span>
+                            <span class="value edit" style="display:none">
+                                <input name="address1_email1" id="address1_email1"
+                                       value="{{ address_email }}"/><br>
+                                <input name="address1_email1_comment" id="address1_email1_comment"
+                                       value="{{ address_email.comment }}"/>
+                            </span>
+                        </li>
+                    {% endfor %}
+
+                    {% for address_phone in address.phones %}
+                        <li>
+                            <span class="key"><label for="address1_phone1">{{ address_phone.type }}</label></span>
+                            <span class="value">{{ address_phone }}
+                            {% if address_phone.comment %}<br>{{ address_phone.comment }}{% endif %}</span>
+                            <span class="value edit" style="display:none">
+                                <input name="address1_phone1" id="address1_phone1"
+                                       value="{{ address_phone }}"/><br>
+                                <input name="address1_phone1_comment" id="address1_phone1_comment"
+                                       value="{{ address_phone.comment }}"/>
+                            </span>
+                        </li>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+            {% for web_site in web_sites %}
+                <li>
+                    <span class="key">Web-сайт</span>
+                    <span class="value">
+                            <a href="{{ web_site.website }}">{{ web_site.website }}</a>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if visible_accounts|length %}
+            <h2>Реквизиты</h2>
+            <ul class="data">
+                {% for account in visible_accounts %}
+                    {% ifnotequal visible_accounts|length 1 %}
+                    <h3>Счёт {{ forloop.counter }}</h3>
+                    {% endifnotequal %}
+                        <li class="odd"><span class="key">Банк</span><span class="value">{{ account.bank.name }}</span></li>
+                        <li><span class="key">БИК</span><span
+                                class="value">{{ account.bank.id|stringformat:"09d" }}</span>
+                        </li>
+                        <li class="odd"><span class="key">Расчётный счёт</span><span
+                                class="value">{{ account.settlement_account }}</span></li>
+                        <li><span class="key">Корреспондентский счёт</span><span
+                                class="value">{{ account.correspondent_account }}</span></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if company.companyemployee_set.all|length %}
+            <h2>Руководство</h2>
+            <ul class="data">
+            {% for employee in company.companyemployee_set.all %}
+                <li{% if not forloop.counter|divisibleby:2 %} class="odd"{% endif %}><span class="key">{{ employee.title }}</span><span class="value">{{ employee.full_name }}</span></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+{#        <div id="page_corner"></div>#}
+        <div id="page_vshadow"></div>
+        <div id="page_hshadow"></div>
+    </div>
+    <div class="print_button bottom" onclick="javascript:window.print();">&nbsp;</div>
+</div>
+{% endblock %}
+{% block doc_end %}
+    <script type="text/javascript">
+       
+        $(document).ready(function(){
+            if($('div.print_button.bottom').is(":hidden")==false){
+            $('.rek_content').borderImage('url("/media/img/rek_content_bi.png") 4');
+            }
+
+            $('#content div.rek_content ul.data li span.value div.maps').hide();
+
+            jQuery.each($("#content ul.data li span.value div.maps"), function(id, val){
+                        var address_str = $(val).text();
+                        var geocoder = new YMaps.Geocoder(address_str);
+
+                        YMaps.Events.observe(geocoder, geocoder.Events.Load, function () {
+                            if (this.length()) {
+                                var lat= this._objects[0]._point.__lat; 
+                                var lng= this._objects[0]._point.__lng;
+                                var my_html='<img src="http://static-maps.yandex.ru/1.x/?ll='+ lng +','+ lat +'&pt='+ lng +','+ lat +'&spn=0.006,0.006&l=map&size=600,400&key=ACVSuk4BAAAAi2cdcgIA8JpaVJbKmfDgSbkqnGBHUcFBeb8AAAAAAAAAAAC8h0atG6y9ePY8chMd3T7qLwawqw==" width="600" height="400" border="0"/>';
+                                $(val).html(my_html);
+                                $(val).show();
+                            }
+                        });
+
+                     }
+            );
+
+        });
+    </script>
+{% endblock %}
+

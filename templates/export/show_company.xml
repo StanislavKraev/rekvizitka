@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{% if error %}
+<error rek_code="{{ rek_code }}">{{ error }}</error>
+{% endif %}
+{% if company %}
+<Компания>
+
+    <Наименование>{{ company.shortname }}</Наименование>
+    <НаименованиеПолное>{{ company.fullname }}</НаименованиеПолное>
+    <ИНН>{{ company.inn }}</ИНН>
+    <КПП>{{ company.kpp }}</КПП>
+    {% if website %}<ВебАдрес>{{ website }}</ВебАдрес>{% endif %}
+    <ОКОПФ>{{  company.opf_full }}</ОКОПФ>
+
+    {% if account %}
+    <РасчетныйСчет>{{ account.settlement_account }}</РасчетныйСчет>
+    <БИК>{{ account.bank.id }}</БИК>
+    {% endif %}
+
+    {% if address.get_postcode %}<Индекс>{{ address.get_postcode }}</Индекс>{% endif %}
+    {% if address.address_l1 %}<Регион>{{ address.address_l1 }}</Регион>{% endif %}
+    {% if address.address_l2 %}<Район>{{ address.address_l2 }}</Район>{% endif %}
+    {% if address.address_l3 %}<Город>{{ address.address_l3 }}</Город>{% endif %}
+    {% if address.address_l4 %}<НаселенныйПункт>{{ address.address_l4 }}</НаселенныйПункт>{% endif %}
+    {% if address.address_l5 %}<Улица>{{ address.address_l5 }}</Улица>{% endif %}
+    {% if address.address_l6 %}<Дом>{{ address.address_l6 }}</Дом>{% endif %}
+    {% if address.address_l7 %}<Корпус>{{ address.address_l7 }}</Корпус>{% endif %}
+    {% if address.address_l8 %}<Офис>{{ address.address_l8 }}</Офис>{% endif %}
+    {% if phone %}<Телефон>{{ phone }}</Телефон>{% endif %}
+    {% if email %}<АдресЭлектроннойПочты>{{ email }}</АдресЭлектроннойПочты>{% endif %}
+
+</Компания>
+{% endif %}

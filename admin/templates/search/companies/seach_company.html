@@ -1,0 +1,102 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/search/">Поиск, просмотр</a> &mdash; Компании</h3>
+    <div id="search_filters">Фильтры</div>
+    <ul>
+        <li><a href="/search/companies/?active=true">Активированные</a></li>
+        <li><a href="/search/companies/?active=false">Неактивированные</a></li>
+        <li><a href="/search/companies/?verified=true">Верифицированные</a></li>
+        <li><a href="/search/companies/?verified=false">Неверифицированные</a></li>
+    </ul>
+    <div id="search_results">
+    <p>Количество: {{ total_count }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Rek ID</th>
+                <th>Бренд</th>
+                <th>Статус</th>
+                <th>ОПФ</th>
+                <th>Краткое наим.</th>
+                <th>Полное наим.</th>
+                <th>Описание</th>
+                <th>Лого</th>
+                <th>ИНН</th>
+                <th>КПП</th>
+                <th>Вид деятельности</th>
+                <th>Создана</th>
+                <th>Активирована</th>
+                <th>Основана</th>
+                <th>Штат</th>
+                <th>Ген. директор</th>
+                <th>Бухгалтер</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+            <tr>
+                <td>
+                    {{ forloop.counter }}
+                </td>
+                <td>
+                    <a href="/search/companies/{{ company.rek_id }}/">{{ company.rek_id }}</a>
+                </td>
+                <td>
+                    {{ company.brand_name }}
+                </td>
+                <td style="background-color:{{ company.account_status_color }}">
+                    {{ company.account_status }}
+                </td>
+                <td>
+                    {{ company.inc_form_str }}
+                </td>
+                <td>
+                    {{ company.short_name }}
+                </td>
+                <td>
+                    {{ company.full_name }}
+                </td>
+                <td>
+                    <p title="{{ company.description}}">{{ company.description|truncatewords:7 }}</p>
+                </td>
+                <td style="padding: 0">
+                    <img src="{% if company.logo_url %}{{ company.logo_url }}{% else %}/media/i/default_image.png{% endif %}" width="44" heght="20">
+                </td>
+                <td>
+                    {{ company.inn }}
+                </td>
+                <td>
+                    {{ company.kpp }}
+                </td>
+                <td>
+                    {{ company.category_text }}
+                </td>
+                <td>
+                    {{ company.date_creation }}
+                </td>
+                <td>
+                    {{ company.is_account_activated }}
+                </td>
+                <td>
+                    {{ company.date_established }}
+                </td>
+                <td>
+                    {{ company.staff_size }}
+                </td>
+                <td>
+                    {{ company.gen_director }}
+                </td>
+                <td>
+                    {{ company.chief_accountant }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+.m_mail_list li {
+border: 1px solid gray;
+}
+
+li div.important{
+width:10px;
+height:12px;
+}
+
+li div.important.true{
+background-image: url(/media/img/icon_important.gif);
+}
+
+li div.important.false{
+background-image: url(/media/img/icon_unimportant.gif);
+}
+
+li div.official{
+width:12px;
+height:12px;
+}
+
+li div.official.true{
+background-image: url(/media/img/icon_official.gif);
+}
+
+li div.official.false{
+background-image: url(/media/img/icon_unofficial.gif);
+}

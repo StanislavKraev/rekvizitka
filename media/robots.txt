@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /account_activation/
+Disallow: /combo/
+Disallow: /dchat/
+Disallow: /logout/
+Disallow: /logout/
+Disallow: /settings/
+Disallow: /settings/
+Disallow: /additional-settings/
+Disallow: /change-password/
+Disallow: /change-password/
+Disallow: /verification/
+Disallow: /invites/
+Disallow: /get/*/bill
+Disallow: /deposit/

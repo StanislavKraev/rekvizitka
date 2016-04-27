@@ -1,0 +1,15 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Поиск, просмотр</h3>
+    <ol>
+        <li><a href="/search/accounts/">Поиск по аккаунтам</a></li>
+        <li><a href="/search/companies/">по компаниям</a></li>
+        <li><a href="/search/employees/">по сотрудникам</a></li>
+        <li><a href="/search/users/">по пользователям</a></li>
+        <li><a href="/search/bill_accounts/">по счетам</a></li>
+    </ol>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "abase.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    <header><div><a href="/">На главную</a></div><div class="right_header"><form action="/logout/" method="POST">{% csrf_token %}<span>{{ user.email }} <a href="/logout/" onclick="ad.logout(this);return false;">Выйти</a></span></form></div></header>
+    <script type="text/javascript">
+        ad = {
+            logout : function(eventObject) {
+                var $link = $(eventObject), $form;
+                $form = $link.closest('form');
+                $form.submit();
+            }
+        };
+    </script>
+{% endblock %}

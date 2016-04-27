@@ -1,0 +1,7 @@
+{
+    "name" : "recommendations_application",
+    "requires" : [ "tab-view", "template-store", "utils", "cch", "test_server_data", "informer", "general_portlet" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "style" ],
+    "ver" : "1.4.10"
+}

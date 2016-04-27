@@ -1,0 +1,40 @@
+#profile {
+    padding: 55px 50px;
+    position: relative;
+}
+
+#profile select,
+#profile input[type=text] {
+    margin-bottom: 0;
+}
+
+#profile .checkbox-set {
+    padding-top: 6px;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+#profile .checkbox-set li {
+    display: inline-block;
+    background-image: none;
+    padding: 0;
+    margin: 0;
+}
+
+#profile .checkbox-set label {
+    margin-right: 17px;
+}
+
+#profile .tags-list{
+    margin-bottom:14px;
+}
+
+#profile .tags-list a:link,
+#profile .tags-list a:visited{
+    text-decoration: none;
+}
+
+#profile .tags-list a:active,
+#profile .tags-list a:hover{
+    text-decoration: underline;
+}

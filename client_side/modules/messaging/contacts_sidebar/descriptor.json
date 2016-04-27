@@ -1,0 +1,7 @@
+{
+    "name" : "contacts_sidebar",
+    "requires" : ["template-store"],
+    "templates" : ["sidebar"],
+    "ver" : "1.0.1"
+
+}

@@ -1,0 +1,5 @@
+{
+    "name" : "partners_list_app",
+    "requires" : [ "partners_application", "tab_partners_list" ],
+    "ver" : "1.0.1"
+}

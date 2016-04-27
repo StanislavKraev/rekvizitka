@@ -1,0 +1,10 @@
+<ul id="my-search-list"></ul>
+<hr>
+<ul id="category-selector" class="checkbox-set">
+    <li><input class="checkbox" name="small" id="ccat-small" type="checkbox" <%if (cat_small) { %> checked <% } %> >
+        <label class="checkbox" for="ccat-small"><span></span><%=small_business_title%></label></li>
+    <li><input class="checkbox" name="startup" id="ccat-startup" type="checkbox" <%if (cat_startup) { %> checked <% } %> >
+        <label class="checkbox" for="ccat-startup"><span></span><%=startup_title%></label></li>
+    <li><input class="checkbox" name="social_project" id="ccat-social_project" type="checkbox" <%if (cat_social_project) { %> checked <% } %> >
+        <label class="checkbox" for="ccat-social_project"><span></span><%=social_project_title%></label></li>
+</ul>

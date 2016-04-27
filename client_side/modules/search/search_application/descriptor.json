@@ -1,0 +1,8 @@
+{
+    "name" : "search_application",
+    "locales": ["en", "ru"],
+    "templates" : [ "content", "result_item" ],
+    "requires" : [ "utils", "pagination", "general_portlet" ],
+    "css" : [ "search_application" ],
+    "ver" : "1.3.3"
+}

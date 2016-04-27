@@ -1,0 +1,9 @@
+{
+    "name" : "tab-view",
+    "src" : "tab_view",
+    "templates" : [ "tab_view", "tab_page", "tab_header_item", "dynamic_header_item", "static_header_item" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "tab_view" ],
+    "requires" : [ "utils" ],
+    "ver" : "1.2.8"
+}

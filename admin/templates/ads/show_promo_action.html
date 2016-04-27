@@ -1,0 +1,54 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/ads/">Рекламные, промо-акции</a></h3>
+    <h4>Просмотр промо-акции <span style="color: #b03333;">{{ action.comment|truncatewords:5 }}</span></h4>
+    <div id="action_data">
+        <table>
+            <tr><td>Комментарий</td><td>{{ action.comment }}</td></tr>
+            <tr><td>Дата создания</td><td>{{ action.creation_date }}</td></tr>
+            <tr><td>Дата начала акции</td><td>{{ action.start_date }}</td></tr>
+            <tr><td>Дата окончания</td><td>{{ action.expires_date }}</td></tr>
+            <tr><td>Статус</td><td>{{ action.status }}</td></tr>
+        </table>
+        <a href="manage/" title="Редактировать" class="button">Редактировать</a>
+    </div>
+    <br>
+    {% if action.type == "registration" %}
+
+        <div class="pagination">
+            {% if reg_codes.has_previous %}
+                <a href="?page={{ reg_codes.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+                Страница {{ reg_codes.number }} из {{ reg_codes.paginator.num_pages }}.
+            {% if reg_codes.has_next %}
+                <a href="?page={{ reg_codes.next_page_number }}">Следующая</a>
+            {% endif %}
+        </div>
+
+        <table>
+        {% for code in reg_codes %}
+            <tr{% if code.used_date %} style="background-color: #ff8400"{% endif %}>
+                <td><a href="/ads/promo_code/{{ code.code }}/">{{ code.code }}</a></td>
+                <td>{{ code.company_id }}</td>
+                <td>{{ code.used_date }}</td>
+                <td>{{ code.price.amount }} руб.</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <div class="pagination">
+            {% if reg_codes.has_previous %}
+                <a href="?page={{ reg_codes.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+            Страница {{ reg_codes.number }} из {{ reg_codes.paginator.num_pages }}.
+            {% if reg_codes.has_next %}
+                <a href="?page={{ reg_codes.next_page_number }}">Следующая</a>
+            {% endif %}
+        </div>
+
+    {% endif %}
+{% endblock %}

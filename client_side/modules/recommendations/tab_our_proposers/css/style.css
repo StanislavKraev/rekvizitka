@@ -1,0 +1,24 @@
+#our_proposers{
+    padding: 33px 49px 35px;
+    position:relative;
+}
+#our_proposers h4{
+    margin-bottom:25px;
+}
+
+#our_proposers ul.company li:hover{
+    background-color:transparent;
+    border-top:1px solid transparent;
+    border-bottom:1px solid transparent;
+}
+
+#our_proposers ul.company li{
+        padding-left: 0;
+}
+
+#our_proposers .company.list td.column2{
+    width: 482px;
+}
+#our_proposers .company.list td.column3{
+    display: none;
+}

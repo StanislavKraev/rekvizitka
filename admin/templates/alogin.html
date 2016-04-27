@@ -1,0 +1,15 @@
+{% extends "abase.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/login.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="login_error">{{ login_error_message }}</div>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" value="{{ email }}"/>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" value="" autocomplete="off"/>
+        <input type="submit" id="login" name="login" value="Войти"/>
+    </form>
+{% endblock %}

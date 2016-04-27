@@ -1,0 +1,65 @@
+#feedback {
+    color: #262626;
+    font-size: 13px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#feedback h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: normal;
+    color: #262626;
+}
+
+#feedback h1,
+#feedback p {
+    padding-bottom: 20px;
+}
+
+#feedback textarea,
+#feedback input {
+    margin-bottom: 10px;
+}
+
+#feedback table {
+    width: 72%;
+}
+
+#feedback td {
+    vertical-align: top;
+}
+
+#feedback .column1 {
+    width: 270px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#feedback .column2 {
+    width: 440px;
+}
+
+/*  form    */
+
+#feedback label {
+    display: inline-block;
+    line-height: 32px;
+}
+
+textarea {
+    padding: 7px 8px;
+    min-height: 150px;
+    max-height: 300px;
+    width: 100%;
+}
+
+input.type-email {
+    width: 270px;
+}
+
+
+
+
+

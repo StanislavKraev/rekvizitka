@@ -1,0 +1,8 @@
+{
+    "FolderList" : "folder list",
+    "InboxFolder": "inbox",
+    "OutboxFolder": "outbox",
+    "SpamFolder": "spam",
+    "DraftFolder": "draft",
+    "DeletedFolder": "deleted"
+}

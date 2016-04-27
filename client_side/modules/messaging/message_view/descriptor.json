@@ -1,0 +1,8 @@
+{
+    "name" : "message_view",
+    "requires" : ["template-store", "mail-list", "common_models", "mail_manager"],
+    "locales" : ["ru", "en"],
+    "templates" : ["mails_page"],
+    "ver" : "1.0.0"
+
+}

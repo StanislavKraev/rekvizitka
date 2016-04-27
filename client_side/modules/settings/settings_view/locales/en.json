@@ -1,0 +1,8 @@
+{
+    "loadZonesNoInfo" : "No information about time zones",
+    "loadZonesFail" : "Couldn't load time zones",
+    "defaultZone" : "(UTC+03:00) Volgograd, Moscow, Saint-Petersburg",
+    "saveSettingsFailed" : "Couldn't save changes",
+    "saveSettingsSuccess" : "Main settings saved successfully",
+    "saveSettingsAjaxError" : "Couldn't save main settings"
+}

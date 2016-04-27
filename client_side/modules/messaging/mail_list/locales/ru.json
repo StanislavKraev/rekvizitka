@@ -1,0 +1,18 @@
+{
+    "mail_list": "список писем",
+    "january": "янв.",
+    "february": "фев.",
+    "march": "мар.",
+    "april": "апр.",
+    "may":  "мая",
+    "june": "июня",
+    "july": "июля",
+    "august": "авг.",
+    "september": "сен.",
+    "october": "окт.",
+    "november": "нояб.",
+    "december": "дек.",
+    "today":"сегодня в",
+    "yesterday":"вчера",
+    "received":"Письмо получено"
+}

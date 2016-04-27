@@ -1,0 +1,5 @@
+{
+    "name" : "outgoing_requests_app",
+    "requires" : [ "partners_application", "tab_out_reqs" ],
+    "ver" : "1.0.0"
+}

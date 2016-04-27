@@ -1,0 +1,81 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+    <link href="/media/css/south-street/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/media/js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+    <style>form table input{width: 100px;}</style>
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Оплата счета</h3>
+    <form method="POST">
+    {% csrf_token %}
+    <table>
+        {% if errors.general %}
+            <tr style="color:red"><td colspan="2">{{ errors.general }}</td></tr>
+        {% endif %}
+        <tr><td>Отправитель</td><td>Системный счет Банк</td></tr>
+        <tr style="border-top:2px solid black"><td colspan="2">Платежное поручение:</td></tr>
+        {% if errors.platezhka_nomer %}
+            <tr style="color:red"><td colspan="2">{{ errors.platezhka_nomer }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="platezhka_nomer">Номер</label></td>
+            <td><input type="text" name="platezhka_nomer" id="platezhka_nomer" value="{{ platezhka_nomer }}"></td>
+        </tr>
+        {% if errors.platezhka_date %}
+            <tr style="color:red"><td colspan="2">{{ errors.platezhka_date }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="platezhka_date">Дата</label></td>
+            <td><input type="text" name="platezhka_date" id="platezhka_date" value="{{ platezhka_date }}"></td>
+        </tr>
+        {% if errors.platezhka_comment %}
+            <tr style="color:red"><td colspan="2">{{ errors.platezhka_comment }}</td></tr>
+        {% endif %}
+        <tr>
+            <td><label for="platezhka_comment">Описание</label></td>
+            <td><input type="text" name="platezhka_comment" id="platezhka_comment" value="{{ platezhka_comment }}" style="width: 400px"></td>
+        </tr>
+        <tr style="border-top:2px solid black"><td colspan="2">Счет (invoice):</td></tr>
+        <tr>
+            <td><label for="invoice_number">Оплачен счет</label></td>
+            <td><input type="text" name="invoice_number" id="invoice_number" value="{{ invoice_number }}">
+                <input type="submit" name="get_invoice" id="get_invoice" value="%"/>
+            </td>
+        </tr>
+        <tr><td colspan="2" id="invoice_data"></tr>
+    </table>
+    </form>
+    <script>
+    $(document).ready(function() {
+        $("#platezhka_date").datepicker({ dateFormat: "dd-mm-yy", firstDay:1 });
+        $('#get_invoice').click(function (){
+            var invoiceId = $('#invoice_number').val();
+            $.ajax('/finances/invoice_pay/get_invoice_data/', {
+                success : function(data) {
+                    var invoiceStr = "<ul>", dataKey;
+                    if (data && data.success) {
+                        for (dataKey in data.data) {
+                            if (data.data.hasOwnProperty(dataKey)) {
+                                invoiceStr += '<li>' + dataKey + ': ' + data.data[dataKey] + '</li>';
+                            }
+                        }
+                        invoiceStr += '<li style="list-style-type:none"><input type="submit" name="pay" value="Оплатить" class="modify"/></li>';
+                        invoiceStr += '<input type="hidden" name="invoice_id" value="' + data.invoiceId + '" class="modify"/></li>';
+                        invoiceStr += "</ul>";
+                        $('#invoice_data').html(invoiceStr);
+                    }
+                },
+                error : function() {
+                    $('#invoice_data').html('<p style="color:red">Счет не найден!</p>');
+                },
+                type : 'GET',
+                dataType : 'json',
+                data:{invoiceId : invoiceId}
+            });
+            return false;
+        });
+    });
+    </script>
+{% endblock %}

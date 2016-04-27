@@ -1,0 +1,5 @@
+{
+    "name" : "contacts_main_app",
+    "requires" : ["profile_application", "profile_contacts_view"],
+    "ver" : "1.0.6"
+}

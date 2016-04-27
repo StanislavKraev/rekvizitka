@@ -1,0 +1,48 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/finances/">Финансы</a> - аккаунты</h3>
+    <h5>Системные</h5>
+    <table>
+    <thead>
+    <tr>
+        <th>Тип</th>
+        <th>Наименование</th>
+        <th>Баланс</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for account in system_accounts %}
+    <tr>
+        <td>{{ account.type }}</td>
+        <td><a href="/finances/accounts/{{ account.id }}/">{{ account.name }}</a></td>
+        <td>{{ account.balance }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <h5>Счета компаний</h5>
+    <table>
+        <thead>
+        <tr>
+            <th>Тип</th>
+            <th>Наименование</th>
+            <th>Баланс</th>
+            <th>Компания</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for account in company_accounts %}
+            <tr>
+                <td>{{ account.type }}</td>
+                <td><a href="/finances/accounts/{{ account.id }}/">{{ account.name }}</a></td>
+                <td>{{ account.balance }}</td>
+                <td>{{ account.company_name }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layouts/with_breadcrumbs/l2.html" %}
+
+{% block extra_body_classes %}inner signup{% endblock %}
+{% block extra_wrapper_classes %}signup{% endblock %}
+
+{% block title %}
+    Регистрация - Rekvizitka.Ru
+{% endblock %}
+
+{% block breadcrumbs_l3_text %}Регистрация реквизитки{% endblock %}
+
+{% block content %}
+
+    <div class="signup_block">
+
+        <h2>Получить реквизитку</h2>
+
+        <form class="signup_form" action="" method="POST">
+        {% csrf_token %}
+            <ul>
+                <li {% if form.email.errors %}class="error"{% endif %}>
+                    <label for="id_email">E-mail:</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                            <label for="id_email" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                </li>
+                <li {% if form.first_name.errors %}class="error"{% endif %}>
+                    <label for="id_first_name">Имя:</label>
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        {% for error in form.first_name.errors %}
+                            <label for="id_first_name" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                </li>
+                <li {% if form.last_name.errors %}class="error"{% endif %}>
+                    <label for="id_last_name">Фамилия:</label>
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        {% for error in form.last_name.errors %}
+                            <label for="id_last_name" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                </li>
+                <li {% if form.promo_code.errors %}class="error"{% endif %}>
+                    <label for="id_promo_code">Промо код:</label>
+                    {{ form.promo_code }}
+                    {% if form.promo_code.errors %}
+                        {% for error in form.promo_code.errors %}
+                            <label for="id_promo_code" class="error">{{ error }}</label>
+                        {% endfor %}
+                    {% endif %}
+                </li>
+                <li class="buttons">
+                    <button type="submit" class="single_submit">Зарегистрироваться</button>
+                </li>
+            </ul>
+        </form>
+        {# <p class="offer_announcement">Регистрируясь, вы соглашаетесь с <a href="/offer">публичной офертой</a>.</p> #}
+    </div>
+
+    <div class="signin_block">
+        <h2>Уже зарегистрированы?</h2>
+        <form action="/signin" method="POST" class="login_form">
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <label for="id_username">логин (e-mail)</label>
+                    <input type="text" name="username" id="id_username" />
+                </li>
+                <li>
+                    <label for="id_password">пароль</label>
+                    <input type="password" name="password" id="id_password" />                    
+                </li>
+                <li class="buttons">
+                    <button type="submit" class="single_submit">Войти</button>
+                </li>
+            </ul>
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{
+    "name" : "tab_out_reqs",
+    "css" : [ "tab_out_reqs" ],
+    "locales" : [ "en", "ru" ],
+    "templates" : [ "content", "listitem" ],
+    "requires" : [ "pagination" ],
+    "ver" : "1.0.10"
+}

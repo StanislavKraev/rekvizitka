@@ -1,0 +1,26 @@
+<div class="modalbox editsettings" id="<%-boxid%>">
+    <div class="modalbox-title">Настройки компании
+        "<span title="<%-brand_name%>"><%-brand_name_cut%></span>"<a class="cross-btn"></a></div>
+    <div class="modalbox-content <%-content_align_class%>">
+
+        <p>
+            <span class="vertical-middle">Виден:</span> <select id="view-mode">
+                <option
+                <% if(view_mode === 'everyone') { %> selected <% } %> value="everyone">Всем</option>
+                <option
+                <% if(view_mode === 'empl_contr_their_contr') { %> selected <% } %> value="empl_contr_their_contr">Сотрудникам, контрагентам и их контрагентам</option>
+                <option
+                <% if(view_mode === 'empl_contr') { %> selected <% } %> value="empl_contr">Только моим сотрудникам и
+                контрагентам</option>
+                <option
+                <% if(view_mode === 'employees') { %> selected <% } %> value="employees">Только моим сотрудникам</option>
+                <option
+                <% if(view_mode === 'our_admins') { %> selected <% } %> value="our_admins">Только администраторам
+                компании</option>
+            </select>
+        </p>
+
+        <p><a class="remove-from-partners" id="company_<%=rek_id%>">Удалить из контрагентов</a></p>
+    </div>
+    <div class="modalbox-buttons"></div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "name" : "tab_topping_up",
+    "src" : "tab_topping_up",
+    "templates" : ["content"],
+    "css" : ["style"],
+    "ver" : "1.1.2"
+}

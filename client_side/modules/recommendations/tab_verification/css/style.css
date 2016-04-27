@@ -1,0 +1,114 @@
+#verification {
+    padding: 40px 50px 30px; /* padding-top:45 by default */
+    position: relative;
+}
+
+#verification .panel-result .company.post table {
+    width: 615px;
+}
+x#verification table {
+    width: 615px;
+    border: 1px solid #cadde0;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    margin-bottom: 20px;
+}
+#verification table caption{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 0;
+}
+
+#verification th {
+    padding: 10px;
+    background-color: #cadde0;
+    color: #094754;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+}
+#verification th a {
+    border-bottom: 1px dashed;
+    color: #116f85;
+    position: relative;
+    text-decoration: none;
+}
+#verification th a b {
+    width: 7px;
+    height: 5px;
+    display: block;
+    position: absolute;
+    right: -15px;
+    top: 35%;
+    background: url(/media/css/sort_arrows.png) 0 -7px no-repeat;
+}
+
+x#verification td {
+    padding: 10px;
+    color: #1a5c6a;
+    font-size: 13px;
+    text-align: left;
+    background-color: #e9f3f5;
+}
+
+#verification td:nth-child(2) {
+    color: #3f7700;
+}
+
+#verification td:nth-child(3) {
+    color: #b03333;
+}
+
+/*
+	#verification tr:nth-child(odd) td{
+		background-color:#f2f2f2;
+	}
+*/
+
+
+#verification .icon-text{
+    color: #000;
+    font-size: 10px;
+    margin-left: 35px;
+    position: relative;
+}
+#verification .icon-text:link,
+#verification .icon-text:visited{
+    text-decoration: none;
+}
+#verification .icon-text:active,
+#verification .icon-text:hover{
+    text-decoration: underline;
+}
+
+/*  panel       */
+
+#verification .panel{
+    padding: 15px 0;
+}
+
+#verification .panel .search-field{
+    margin: 0 15px
+}
+
+x#verification .company.post .column1,
+x#verification .company.post .column2,
+x#verification .company.post .column3{
+    float:left;
+}
+
+#verification .company.post .column3{
+	text-align:right;
+}
+
+#verification .company.post .column3 a.button.green{
+	float:right;
+}

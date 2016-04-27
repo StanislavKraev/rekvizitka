@@ -1,0 +1,55 @@
+.modalbox.extended {
+    background-color:#686868;
+    padding: 0;
+}
+
+.modalbox.extended .modalbox-title {
+    height: 40px;
+    background-color:#686868;
+    vertical-align: middle;
+    color:white;
+    display: block;
+    padding: 0 15px 0 20px;
+    border-radius: 6px 6px 0 0;
+    text-align: left;
+    line-height: 40px;
+    font-size: 15px;
+    position: relative;
+}
+
+.modalbox.extended .modalbox-title .cross-btn {
+    width:14px;
+    height:14px;
+    right: 13px;
+    top:12px;
+    position: absolute;
+    background: url(/media/css/icons.png) -103px -150px no-repeat;
+    cursor: pointer;
+}
+
+.modalbox.extended .modalbox-title .cross-btn:hover {
+    background-position: -103px -164px;
+}
+
+.modalbox.extended .modalbox-content {
+    background-color: #fff;
+    padding: 35px 40px 0;
+    font-size: 14px;
+    color: #262626;
+}
+
+.modalbox.extended .modalbox-content p {
+    text-align: left;
+}
+
+.modalbox.extended .modalbox-content textarea {
+    width: 398px;
+    height: 135px;
+    margin-bottom: 20px;
+}
+
+.modalbox.extended .modalbox-buttons {
+    border-top: 1px solid #c4c4c4;
+    border-radius: 0 0 6px 6px;
+    padding: 10px;
+}

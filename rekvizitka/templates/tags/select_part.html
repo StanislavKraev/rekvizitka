@@ -1,0 +1,5 @@
+<select id="{{ select.css_id }}" name="{{ select.css_name }}">
+    {% for option in options %}
+    <option value="{{ option.val }}"{% if option.selected %} selected="selected"{% endif %}>{{ option.text }}</option>
+    {% endfor %}
+</select>

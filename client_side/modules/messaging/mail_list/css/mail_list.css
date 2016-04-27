@@ -1,0 +1,14 @@
+#mail_container{
+    align:left;
+    display:inline-block;
+    vertical-align: top;
+    width: 630px;
+}
+
+.m_mail_list ul {
+    border: 2px solid #adff2f;
+}
+
+.m_mail_list ul li.list span{
+    color: #000;
+}

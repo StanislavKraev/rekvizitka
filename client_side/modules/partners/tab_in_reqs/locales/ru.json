@@ -1,0 +1,7 @@
+{
+    "requests_single" : "заявка",
+    "requests_plural" : "заявок",
+    "you_have_many" : "Вам пришло",
+    "you_have_one" : "Вам пришла",
+    "no_incoming_requests" : "Нет входящих заявок"
+}

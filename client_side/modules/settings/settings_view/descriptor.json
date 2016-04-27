@@ -1,0 +1,9 @@
+{
+    "name" : "profile_settings_view",
+    "src" : "settings_view",
+    "locales" : [ "en", "ru" ],
+    "templates" : ["content"],
+    "css" : ["settings_view"],
+    "requires" : [ "global_notifier_core" ],
+    "ver" : "1.1.5"
+}

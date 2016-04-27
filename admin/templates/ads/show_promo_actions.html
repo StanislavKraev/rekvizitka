@@ -1,0 +1,34 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/ads/">Рекламные, промо-акции</a></h3>
+    <h4>Просмотр промо-акций</h4>
+    <ol>
+    {% for action in actions %}
+        <li><a href="/ads/view_promo_actions/{{ action.id }}/">{{ action.comment|truncatewords:5 }}</a>
+            {{ action.start_date }} &ndash; {{ action.expires_date }} ({{ action.status }})
+            {% if action.type == "registration" %}
+            <table>
+                {% for code in action.codes %}
+                <tr{% if code.used_date %} style="background-color: #ffdab9;"{% endif %}>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ code.code }}</td>
+                    <td>{{ code.price.amount }} руб.</td>
+                </tr>
+                {% if forloop.last %}
+                    <tr><td colspan="3">...</td></tr>
+                {% endif %}
+                {% empty %}
+                    <tr><td colspan="3">Нет ни одного промо-кода</td></tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </li>
+    {% empty %}
+        Нет акций
+    {% endfor %}
+    <ol>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+    "name" : "cch",
+    "src" : "cch",
+    "templates" : [ "content" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "cch" ],
+    "requires" : [ "dialog_ask_recommend" ],
+    "ver" : "1.1.11"
+}

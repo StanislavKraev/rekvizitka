@@ -1,0 +1,327 @@
+/* rekvizitka homepage.css */
+
+/*  header LOGGED OUT  (the same copy should be in main_header.css) */
+
+.logged-out {
+    padding: 10px 30px 0;
+}
+
+.logged-out td {
+    vertical-align: top;
+}
+
+.logged-out a,
+.logged-out label {
+    font-size: 12px;
+}
+
+.logged-out label {
+    color: #c7c7c7;
+}
+
+.beforelogin.error-page #content td.column1 {
+    width: 378px;
+}
+
+.error-page .reg-form a:link,
+.error-page .reg-form a:visited {
+    color:#3f3f3f;
+}
+
+.error-page .reg-form a:active,
+.error-page .reg-form a:hover {
+    color:#1b1b1b;
+}
+
+/* #content TABLE */
+
+.intro-text {
+    color: #8A8A8A;
+    font-size: 24px;
+    font-weight: bold;
+    height: 71px;
+    padding-top:44px;
+    text-align: center;
+    vertical-align: top;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.intro-text {
+        height: 115px;
+	}
+}
+
+.beforelogin #content table {
+    height: 590px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content td.column1 {
+    width: 400px;
+    vertical-align: top;
+}
+
+#content td.column2 {
+    width: 380px;
+    vertical-align: top;
+}
+
+/*  table for reg-form  */
+
+.beforelogin #content td.column1 ul {
+    margin-top: 80px;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.beforelogin #content td.column1 ul li {
+    margin: 0;
+    padding-bottom: 22px;
+    padding-left: 23px;
+    list-style: none;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE4QzgxRTE5NzgwRDExRTE4MkYxRTdBRkMwQTk5OTRGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE4QzgxRTFBNzgwRDExRTE4MkYxRTdBRkMwQTk5OTRGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MThDODFFMTc3ODBEMTFFMTgyRjFFN0FGQzBBOTk5NEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MThDODFFMTg3ODBEMTFFMTgyRjFFN0FGQzBBOTk5NEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Oc09aAAAABlBMVEWVyVsAAAAQxTw2AAAADklEQVR42mJgoCcACDAAAG4AARwPxJAAAAAASUVORK5CYII=') 0 5px no-repeat;
+    color: #1e1e1e;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.beforelogin #content td.column1 ul li.last {
+    line-height: 20px;
+    background-position:0 6px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.beforelogin #content td.column1 ul li.last {
+    background-position:0 6px;
+}
+}
+
+.layout.no-right-sidebar.no-left-sidebar .layout-container .layout-container-c-s .layout-content {
+    margin-right: 0;
+}
+
+/* System messages */
+
+.panel.setpassword {
+    margin-top: 185px;
+    padding-top:24px;
+}
+
+ /*Firefox Only */
+@-moz-document url-prefix() {
+.panel.setpassword {
+    padding-top:23px;
+}
+}
+
+.panel.setpassword .submit{
+    font-size: 16px;
+    height: 30px;
+    line-height: 29px;
+    width:155px;
+}
+
+.panel.recovery {
+    margin: 191px auto 0;
+}
+
+/* Firefox Only */
+/*@-moz-document url-prefix() {*/
+/*}*/
+
+.panel.system-msg {
+    /*margin: 191px auto 0;*/
+    margin: 243px auto 0;
+    width: 340px;
+}
+
+.system-msg.panel{
+    padding-bottom:22px;
+}
+.system-msg.panel p{
+    margin-bottom:0;
+    padding: 8px 0 10px;
+    line-height: 20px;
+    color: #4f4f4f;
+    font-size: 14px;
+}
+
+/*  REG-FORM  */
+
+.reg-form {
+    text-align: left;
+}
+
+#content #promo_code_part1,
+#content #promo_code_part2 {
+    width: 33px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+#content #promo_code_part1,
+#content #promo_code_part2 {
+    width: 32px;
+}
+}
+
+
+.reg-form input[type=text],
+.reg-form input[type=password] {
+
+    color: #000;
+
+    font-size: 15px;
+    height:27px;
+    padding-bottom: 1px;
+
+    width: 298px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.reg-form input[type=text],
+.reg-form input[type=password] {
+    margin-bottom: 10px;
+}
+}
+
+.reg-form h1 {
+    margin: 0 0 22px;
+    padding: 0;
+    font-size: 24px;
+    color: #000;
+    margin-left: -1px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.reg-form h1 {
+    margin-bottom:21px;
+	}
+}
+
+.reg-form label {
+    margin: 0 0 7px;
+    padding: 0;
+    font-size: 14px;
+    color: #8c8c8c;
+    display: inline-block;
+}
+
+.reg-form .submit {
+    margin: 5px 0 0;
+    width: 318px;
+    height: 38px;
+
+    line-height:38px;
+
+    font-size: 18px;
+    color: #fff;
+    padding:0;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.reg-form .submit {
+    margin:6px 0 0;
+    line-height: 37px;
+	}
+}
+
+
+
+.error-page .reg-form .submit {
+    font-size: 22px;
+}
+
+.reg-form a {
+    font-size: 12px;
+}
+
+.reg-form a:link,
+.reg-form a:visited {
+    color: #686868;
+}
+
+.reg-form a:hover,
+.reg-form a:active {
+    color: #2a2a2a;
+}
+
+.reg-form .error-msg {
+    display: none;
+
+    padding: 10px 64px;
+    border: 1px solid #babc9c;
+    background-color: #f4f7c4;
+    text-align: center;
+    font-size: 12px;
+    color: #545732;
+
+    left: 37px;
+    padding: 10px 64px;
+    position: absolute;
+    top: -90px;
+}
+
+.need-registration {
+    display: block;
+    font-size: 14px;
+    margin: 11px 30px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.need-registration {
+    margin-top: 10px;
+}
+}
+
+.need-registration:link,
+.need-registration:visited {
+    color: #327b8b;
+}
+
+.need-registration:hover,
+.need-registration:active {
+    color: #146173;
+}
+
+
+
+.error-page header .part-dynamic {
+    display: none;
+}
+
+.error-page .wrap {
+    padding-top: 40px;
+}
+
+.ndash{
+    color:#acacac;
+    vertical-align: 2px;
+}
+
+.margin-extra-login{
+    margin-top:176px;
+}
+
+.beforelogin #content table.margin-extra-login{
+    height:474px;
+}
+
+
+.extra-login label.checkbox{
+    margin-bottom:8px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.extra-login label.checkbox{
+    margin-bottom:7px;
+}
+}

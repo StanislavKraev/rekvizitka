@@ -1,0 +1,12 @@
+{
+    "currentPassword" : "Current password",
+    "newPassword" : "New password",
+    "newConfirm" : "Confirm password",
+    "forgotPassword" : "Forgot password?",
+    "errorBadConfirm" : "Confirmation differs from the new password",
+    "errorShortPassword" : "The new password is too short. Minimal password length - 6 characters",
+    "errorSameAsCurrent" : "Current and new passwords must differ",
+    "errorNoCurrent" : "Type your current password",
+    "errorBadConnect" : "Error connecting to the server",
+    "saveNewPasswordSuccess" : "Your new password saved successfully"
+}

@@ -1,0 +1,5 @@
+{
+    "name" : "tab_topping_up",
+    "requires" : ["deposit_application", "tab_topping_up"],
+    "ver" : "1.1.7"
+}

@@ -1,0 +1,101 @@
+#settings {
+	padding : 35px 40px 50px 50px;
+	position :relative;
+}
+	#settings hr {
+		width :480px;
+	}
+
+    #settings dl dt {
+		width :106px;
+		margin-right : 13px;
+        line-height : 24px;
+	}
+
+#settings dl dd textarea, 
+#settings dl dd input[type="text"] {
+    background: #F7F7F7;
+    border-radius: 4px 4px 4px 4px;
+    border: 1px solid #D3D3D3;
+    height: 24px;
+    width: 347px;
+    position: relative;
+    overflow : hidden;
+    z-index : 5;
+}
+
+.sparkbox-custom {
+    position: absolute;
+}
+
+#settings dl dd .select-envp {
+}
+
+#settings dl dd .select-envp select {
+    color: #262626;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    padding : 4px;
+    width :357px;
+}
+
+#settings .button-set {
+	overflow:hidden;
+    margin-left:118px;
+}
+
+#settings #logo .button-set {
+	padding-left:0;
+	width: 180px;
+}
+	#settings #logo .button-set a {
+		width: 110px;
+		margin-bottom:5px;
+		padding-left:0;
+		padding-right:0;
+	}
+
+
+#settings #logo img {
+	float:left;
+	display:block;
+
+	font-family:arial, sans-serif;
+	font-size: 13px;
+	color:#262626;
+	background-color:#f7f7f7;
+	border:1px solid #ccc;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	behavior: url(/media/js/PIE.htc);
+
+	margin-right:5px;
+
+	width: 188px;
+	height: 98px;
+}
+
+/*	FILE UPLOADER		*/
+
+#settings #logo #file-uploader {
+	position:relative;
+}
+
+#settings #logo #file-uploader .choose-file {
+    height: 28px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 110px;
+	overflow: hidden;
+}
+	#settings #logo #file-uploader .choose-file input {
+		font-size:28px !important;
+		position:absolute !important; 
+		right:0 !important;
+		top:0 !important;
+		height: 110px !important;
+	}

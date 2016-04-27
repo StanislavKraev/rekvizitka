@@ -1,0 +1,8 @@
+{
+    "name" : "chat_dialog_list_view",
+    "templates" : [ "content", "listelem" ],
+    "css" : [ "chat_dialog_list_view" ],
+    "locales" : [ "en", "ru" ],
+    "requires" : [ "utils", "pagination"],
+    "ver" : "1.1.4"
+}

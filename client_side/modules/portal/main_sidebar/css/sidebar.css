@@ -1,0 +1,372 @@
+#left-sidebar {
+    width: 190px;
+    padding: 10px;
+    position: relative;
+}
+
+#left-sidebar li {
+    font-size: 15px;
+}
+
+/* remove? */
+#left-sidebar a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 11px;
+}
+
+#left-sidebar a:link,
+#left-sidebar a:visited {
+    color: #8f8f8f;
+}
+
+#left-sidebar a:hover,
+#left-sidebar a:active {
+    color: #616161;
+}
+
+#left-sidebar a span {
+    font-size: 15px;
+}
+
+#left-sidebar a:hover span {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+#left-sidebar a span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: 55px;
+    padding: 2px 4px;
+    position: absolute;
+    text-align: center;
+    top: 28px;
+}
+
+#left-sidebar .button {
+    display: block;
+    margin-bottom:5px;
+}
+
+#left-sidebar ul {
+    margin: 19px 10px 0;
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+#left-sidebar ul li {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    line-height: 24px;
+    background: none;
+}
+
+#left-sidebar ul li.current {
+    background-color: #c7c7c7;
+}
+
+#left-sidebar .my-profile-list {
+    border-left: 2px solid #ababab;
+    margin-top: 15px;
+}
+
+#left-sidebar .company-profile-list {
+    border-left: 2px solid #94bf62;
+}
+
+#left-sidebar ul a {
+    padding-left: 12px;
+    margin-bottom: 0;
+}
+
+#left-sidebar .my-profile-list a,
+#left-sidebar .company-profile-list a {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#left-sidebar .my-profile-list a:link,
+#left-sidebar .my-profile-list a:visited,
+#left-sidebar .company-profile-list a:link,
+#left-sidebar .company-profile-list a:visited {
+    color: #3c3c3c;
+}
+
+#left-sidebar .my-profile-list a:hover,
+#left-sidebar .my-profile-list a:active,
+#left-sidebar .company-profile-list a:hover,
+#left-sidebar .company-profile-list a:active {
+    color: #000;
+    text-decoration: underline;
+}
+
+#left-sidebar hr.my-profile-list {
+    border: none;
+    border-bottom: 1px dashed #bebebe;
+
+    height: 1px;
+    margin: 8px 20px;
+}
+
+#left-sidebar hr.company-profile-list {
+    border: none;
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #f7f7f7;
+    margin: 11px 0;
+}
+
+#left-sidebar ul.my-contractors-list a {
+    color: #578720;
+}
+
+#left-sidebar div.button a.button {
+    display: inline-block;
+    width: 188px;
+    margin: 0 0 5px 0;
+
+    border: 1px solid #88b265;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    text-shadow: #759f4d 1px 1px 1px;
+
+    background: #83a858;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#A0C675), to(#83a858));
+    background: -webkit-linear-gradient(#A0C675, #83a858);
+    background: -moz-linear-gradient(#A0C675, #83a858);
+    background: -ms-linear-gradient(#A0C675, #83a858);
+    background: -o-linear-gradient(#A0C675, #83a858);
+    background: linear-gradient(#A0C675, #83a858);
+    -pie-background: linear-gradient(#A0C675, #83a858);
+    behavior: url(/media/js/PIE.htc);
+
+    height: 28px;
+
+    line-height: 28px;
+    font-size: 13px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+#left-sidebar div.button a.button:hover {
+    background: #8fb35b;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#A0C675), to(#8fb35b));
+    background: -webkit-linear-gradient(#aacd7c, #8fb35b);
+    background: -moz-linear-gradient(#aacd7c, #8fb35b);
+    background: -ms-linear-gradient(#aacd7c, #8fb35b);
+    background: -o-linear-gradient(#aacd7c, #8fb35b);
+    background: linear-gradient(#aacd7c, #8fb35b);
+    -pie-background: linear-gradient(#aacd7c, #8fb35b);
+}
+
+#left-sidebar .logo-box {
+    position: relative;
+    margin-bottom: 10px;
+
+}
+
+#left-sidebar #avatar-logo {
+    display: block;
+    margin-bottom: 0;
+    /*width: 186px; or 188*/
+    /*height: 93px; or 95 */
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#left-sidebar .logo-box{
+    border-style: solid;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#left-sidebar .logo-box.empty-logo{
+    border-width: 1px;
+    border-color: #d6d6d6;
+    background-color: #fff;
+}
+
+#left-sidebar .logo-box.empty-logo #avatar-logo{
+    margin: 1px;
+}
+
+#left-sidebar .logo-box.exist-logo{
+    border-width: 2px;
+    background-color: #bfbfbf;
+    border-color:#b0b0b0;
+}
+
+#left-sidebar a.add-logo {
+    color: #8F8F8F;
+    left: 41px;
+    padding: 3px 5px;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+    width: 50%;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+#left-sidebar a.add-logo {
+    left: 42px;
+}
+}
+
+#left-sidebar .logo-box:hover a.add-logo{
+    color:#606060;
+    text-decoration: underline;
+}
+
+#left-sidebar a.change-logo {
+    background-color: #000;
+    color: #fff;
+    right: 0;
+    padding: 0 13px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    font-size: 13px;
+
+    height: 23px;
+    line-height: 23px;
+    opacity: 0.6;
+
+    -webkit-border-radius: 0 4px 0 0;
+    -moz-border-radius: 0 4px 0 0;
+    border-radius: 0 4px 0 0;
+}
+
+#left-sidebar .change-logo:link {
+    text-decoration: none;
+}
+
+#left-sidebar .change-logo:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/*	FILE UPLOADER		*/
+
+#left-sidebar #file-uploader {
+    height: 104px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 190px;
+    overflow: hidden;
+}
+
+#left-sidebar .logo-box a.change-logo {
+    display: none;
+}
+
+#left-sidebar .logo-box:hover a.change-logo {
+    display: inline;
+}
+
+#left-sidebar a.add-logo ~ #file-uploader div input {
+    font-size: 104px !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 104px !important;
+}
+
+#left-sidebar a.change-logo ~ #file-uploader div input {
+    font-size: 23px !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    height: 23px !important;
+}
+
+#left-sidebar a.change-logo ~ #file-uploader div {
+    height: 23px !important;
+}
+
+/*	CONTRACTORS		*/
+
+#left-sidebar h3 {
+    margin: 13px 0 15px;
+    margin-left: 10px;
+    padding: 0;
+    color: #3c3c3c;
+    font-size: 17px;
+}
+
+#left-sidebar h3 a:link,
+#left-sidebar h3 a:visited {
+    color: #3c3c3c;
+    font-size: 17px;
+}
+
+#left-sidebar h3 a:active,
+#left-sidebar h3 a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+#left-sidebar ul.my-contractors-list ul {
+    margin-left: 0;
+}
+
+#left-sidebar ul.my-contractors-list a {
+    color: #578720;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 9px;
+    padding-left: 0;
+}
+
+#left-sidebar ul.my-contractors-list a:hover {
+    text-decoration: underline;
+}
+
+#left-sidebar ul.my-contractors-list a img {
+    vertical-align: -6px;
+    width: 36px;
+    height: 18px;
+}
+
+#left-sidebar ul#my-search-list{
+    margin-bottom: 15px;
+}
+
+/* HR */
+
+#left-sidebar hr{
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+    margin-bottom:13px;
+}
+
+/* CATEGORY SELECTOR */
+
+#left-sidebar .search-sidebar ul.checkbox-set li {
+    height: auto;
+    line-height: 1;
+    padding-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+{
+    "name" : "tab_invites",
+    "requires" : ["recommendations_application", "tab_invites"],
+    "ver" : "1.1.7"
+}

@@ -1,0 +1,78 @@
+.right_header {
+    text-align: right;
+}
+
+dl {
+    overflow: hidden;
+}
+
+dl dt, dl dd {
+    float: left;
+}
+
+dl dt {
+    clear: left;
+    width: 20%;
+}
+
+table tr td, table th {
+    border: 1px solid #dcdcdc;
+    padding: 2px 4px;
+}
+
+table {
+    border-spacing: 0;
+    margin: 10px 2px;
+}
+
+table {
+    font-size: small;
+}
+
+table td p {
+    margin: 0;
+}
+
+a.button {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid #0F963F;
+    border-radius: 3px;
+    margin: 4px;
+    box-shadow: 2px 2px 2px green;
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: arial,sans-serif;
+}
+
+form table input,
+form table textarea{
+    width: 500px;
+}
+
+form table textarea {
+    height: 150px;
+}
+
+input[type=submit] {
+    padding: 4px 12px;
+    background: white;
+    border: 1px solid #0F963F;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 4px;
+    box-shadow: 2px 2px 2px green;
+    font-size: 12px;
+    font-family: arial,sans-serif;
+}
+
+input.modify[type=submit] {
+    box-shadow: 2px 2px 2px red;
+    border: 1px solid #cd0a0a;
+}
+
+td.error {
+    color: #cd0a0a;
+    font-size: small;
+}

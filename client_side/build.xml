@@ -1,0 +1,233 @@
+<project name="Messaging" default="dev" basedir=".">
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="/usr/share/ant/lib/ant-contrib.jar"/>
+        </classpath>
+    </taskdef>
+    <taskdef name="jslint" classname="com.googlecode.jslint4java.ant.JSLintTask">
+        <classpath path="/usr/share/ant/lib/jslint4java.jar"/>
+    </taskdef>
+    <tstamp/>
+    <description>Build js applications</description>
+
+    <condition property="locale" value="ru">
+        <not><isset property="locale" /></not>
+    </condition>
+
+    <property name="src" location="src"/>
+    <property name="build_dir" location="../../rekmedia"/>
+    <property name="out_modules_dir" location="${build_dir}/modules"/>
+    <property name="out_apps_dir" location="${build_dir}/apps"/>
+    <property name="out_js_dir" location="${build_dir}/js"/>
+    <property name="out_css_dir" location="${build_dir}/css"/>
+    <property name="modules_dir" location="${basedir}/modules"/>
+    <property name="apps_dir" location="${basedir}/apps"/>
+    <property name="third_party_dir" location="${basedir}/third_party"/>
+    <property name="out_loader_dir" location="${out_modules_dir}/${locale}/loader"/>
+    <property name="media_dir" location="${basedir}/../media/"/>
+    <property name="css_dir" location="${media_dir}/css/"/>
+    <property name="js_dir" location="${media_dir}/js/"/>
+
+
+    <import file="${basedir}/local_settings.xml"/>
+
+    <target name="oldnolint" depends="js.build_apps, copy_files"
+            description="Development build, no lint">
+    </target>
+
+    <target name="olddev" depends="js.lint, copy_files"
+            description="Development build">
+    </target>
+
+    <target name="oldproduction" depends="js.minify, js.minify_css, copy_files, minify_bases"
+            description="Production build">
+    </target>
+
+    <target name="nolint" depends="build_basic_js, build_basic_css, js.build_apps, copy_files"
+            description="Development build, no lint">
+    </target>
+
+    <target name="dev" depends="build_basic_js, build_basic_css, js.lint, copy_files"
+            description="Build test">
+    </target>
+
+    <target name="production" depends="build_basic_js, build_basic_css, js.minify, js.minify_css, copy_files"
+            description="Build production test">
+    </target>
+
+    <target name="copy_files">
+        <mkdir dir="${out_loader_dir}"/>
+    </target>
+
+    <target name="minify_bases">
+        <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+            <arg value="${css_dir}/base.css"/>
+            <arg value="-o"/>
+            <arg value="${css_dir}/base.css"/>
+        </java>
+    </target>
+
+    <target name="js.minify" depends="js.lint">
+        <for param="file">
+            <path>
+                <fileset dir="${build_dir}" includes="**/*.js" excludes="**/*-min.js"/>
+            </path>
+            <sequential>
+                <echo message="Filename: @{file}"/>
+                <var name="jsWithoutExt" unset="true"/>
+                <var name="jsWithoutExtDir" unset="true"/>
+                <basename file="@{file}" property="jsWithoutExt" suffix=".js"/>
+                <dirname file="@{file}" property="jsWithoutExtDir"/>
+                <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+                    <arg value="@{file}"/>
+                    <arg value="-o"/>
+                    <arg value="@{file}"/>
+                </java>
+            </sequential>
+        </for>
+    </target>
+
+    <target name="js.minify_css" depends="js.lint">
+        <for param="file">
+            <path>
+                <fileset dir="${build_dir}" includes="**/*.css" excludes="**/*-min.css"/>
+            </path>
+            <sequential>
+                <echo message="Filename: @{file}"/>
+                <var name="jsWithoutExt" unset="true"/>
+                <var name="jsWithoutExtDir" unset="true"/>
+                <basename file="@{file}" property="jsWithoutExt" suffix=".css"/>
+                <dirname file="@{file}" property="jsWithoutExtDir"/>
+                <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+                    <arg value="@{file}"/>
+                    <arg value="-o"/>
+                    <arg value="@{file}"/>
+                </java>
+            </sequential>
+        </for>
+    </target>
+
+    <target name="js.lint" depends="js.build_apps">
+        <jslint options="undef,white,browser,nomen,sub,regexp">
+            <formatter type="plain" />
+            <formatter type="xml" destfile="${out_apps_dir}/jslint.xml" />
+            <fileset dir="${out_apps_dir}" includes="**/*.js" excludes="**/*-min.js"/>
+        </jslint>
+    </target>
+
+    <target name="js.preprocess" depends="js.build_apps">
+        <for param="file">
+            <path>
+                <fileset dir="${build_dir}" includes="**/*.js"/>
+            </path>
+            <sequential>
+                <exec executable="${python_interpret}">
+                    <arg value="${basedir}/preprocess.py"/>
+                    <arg value="-I${basedir}/"/>
+                    <arg value="-o@{file}"/>
+                    <arg value="@{file}"/>
+                </exec>
+            </sequential>
+        </for>
+    </target>
+
+    <target name="js.build_apps" depends="js.build_modules">
+        <exec executable="${python_interpret}">
+            <arg value="${basedir}/build_apps.py"/>
+            <arg value="-I${apps_dir}"/>
+            <arg value="-o${out_apps_dir}"/>
+            <arg value="-m${out_modules_dir}"/>
+            <arg value="-l${locale}"/>
+        </exec>
+    </target>
+
+    <target name="js.build_modules" depends="js.update_deps">
+        <exec executable="${python_interpret}">
+            <arg value="${basedir}/build_modules.py"/>
+            <arg value="-I${modules_dir}"/>
+            <arg value="-o${out_modules_dir}"/>
+            <arg value="-m${out_modules_dir}"/>
+            <arg value="-l${locale}"/>
+        </exec>
+    </target>
+
+    <target name="js.update_deps">
+        <sequential>
+            <delete dir="${out_modules_dir}"/>
+            <mkdir dir="${out_modules_dir}"/>
+            <delete dir="${out_apps_dir}"/>
+            <mkdir dir="${out_apps_dir}"/>
+            <exec executable="${python_interpret}">
+                <arg value="${basedir}/update_deps.py"/>
+                <arg value="-I${modules_dir}"/>
+                <arg value="-o${out_modules_dir}"/>
+            </exec>
+        </sequential>
+    </target>
+
+    <target name="build_basic_js" depends="build_base_js">
+    </target>
+
+    <target name="build_base_js">
+        <concat destfile="${out_js_dir}/base.js" eol="crlf" fixlastline="yes">
+            <fileset file="${js_dir}/base-1-jquery.js"/>
+            <fileset file="${js_dir}/base-2-json.js"/>
+            <fileset file="${js_dir}/base-3-file-uploader.js"/>
+            <fileset file="${js_dir}/base-4-tiptip.js"/>
+            <fileset file="${js_dir}/base-5-underscore.js"/>
+            <fileset file="${js_dir}/base-6-backbone.js"/>
+            <fileset file="${js_dir}/base-7-yui.js"/>
+            <fileset file="${js_dir}/base-8-socket.js"/>
+            <fileset file="${js_dir}/base-9-elastic.js"/>
+            <fileset file="${js_dir}/base-a-jqselectbox.js"/>
+        </concat>
+    </target>
+
+    <target name="build_basic_css" depends="build_base_css, build_homepage_css">
+    </target>
+
+    <target name="build_base_css">
+        <concat destfile="${out_css_dir}/base.css" eol="crlf" fixlastline="yes">
+            <fileset file="${css_dir}/buttons.css"/>
+            <fileset file="${css_dir}/base/base-1.css"/>
+            <fileset file="${css_dir}/base/base-2.css"/>
+        </concat>
+    </target>
+
+    <target name="build_homepage_css">
+        <concat destfile="${out_css_dir}/homepage.css" eol="crlf" fixlastline="yes">
+            <fileset file="${css_dir}/homepage/homepage.css"/>
+        </concat>
+    </target>
+
+    <target name="minify_basic_js" depends="minify_base_js">
+    </target>
+
+    <target name="minify_base_js">
+        <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+            <arg value="${out_js_dir}/base.js"/>
+            <arg value="-o"/>
+            <arg value="${out_js_dir}/base.js"/>
+        </java>
+    </target>
+
+    <target name="minify_basic_css" depends="minify_base_css, minify_homepage_css">
+    </target>
+
+    <target name="minify_base_css">
+        <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+            <arg value="${out_css_dir}/base.css"/>
+            <arg value="-o"/>
+            <arg value="${out_css_dir}/base.css"/>
+        </java>
+    </target>
+
+    <target name="minify_homepage_css">
+        <java jar="yuicompressor.jar" fork="true" maxmemory="50m">
+            <arg value="${out_css_dir}/homepage.css"/>
+            <arg value="-o"/>
+            <arg value="${out_css_dir}/homepage.css"/>
+        </java>
+    </target>
+</project>

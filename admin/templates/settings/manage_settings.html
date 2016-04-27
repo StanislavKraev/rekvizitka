@@ -1,0 +1,55 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+    <style>dd {width: 300px;}</style>
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Настройки</h3>
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <dl>
+            <dt>Счетчик rek_id компании:</dt>
+            <dd>{{ company_auto_index }}</dd>
+
+            <dt>Счетчик invoice счетов:</dt>
+            <dd>{{ bill_auto_index }}</dd>
+
+            <dt><label for="verify_bill_price">Стоимость верификации:</label></dt>
+            <dd>{% if errors.verify_bill_price %}<div style="color:red;font-size: small">{{ errors.verify_bill_price }}</div>{% endif %}
+                <input type="text" name="verify_bill_price" id="verify_bill_price" value="{{ verify_bill_price }}"/> руб.</dd>
+
+            <dt><label for="registration_promo_action_amount">Сумма, переводимая на депозит в рамках промо-акции "Зарегистрируйся по промо-коду":</label></dt>
+            <dd>{% if errors.registration_promo_action_amount %}<div style="color:red;font-size: small">{{ errors.registration_promo_action_amount }}</div>{% endif %}
+                <input type="text" name="registration_promo_action_amount" id="registration_promo_action_amount" value="{{ registration_promo_action_amount }}"/> руб.</dd>
+
+            <dt><label for="rnes">Необходимое количество рекомендателей для верификации:</label></dt>
+            <dd>{% if errors.rnes %}<div style="color:red;font-size: small">{{ errors.rnes }}</div>{% endif %}
+                <input type="text" name="rnes" id="rnes" value="{{ rnes }}"/></dd>
+
+            <dt><label for="rmax">Максимальное количество одновременных запросов на рекомендацию для верификации:</label></dt>
+            <dd>{% if errors.rmax %}<div style="color:red;font-size: small">{{ errors.rmax }}</div>{% endif %}
+                <input type="text" name="rmax" id="rmax" value="{{ rmax }}"/></dd>
+
+            <dt><label for="rtimeout">Время жизни запросов на рекомендацию для верификации:</label></dt>
+            <dd>{% if errors.rtimeout %}<div style="color:red;font-size: small">{{ errors.rtimeout }}</div>{% endif %}
+                <input type="text" name="rtimeout" id="rtimeout" value="{{ rtimeout }}"/></dd>
+
+            <dt><label for="verifylettercount">Количество писем с напоминанием о необходимости верификации:</label></dt>
+            <dd>{% if errors.verifylettercount %}<div style="color:red;font-size: small">{{ errors.verifylettercount }}</div>{% endif %}
+                <input type="text" name="verifylettercount" id="verifylettercount" value="{{ verifylettercount }}"/></dd>
+
+            <dt><label for="verifyletterdelaydays">Промежуток в днях между письмами с напоминанием о необходимости верификации:</label></dt>
+            <dd>{% if errors.verifyletterdelaydays %}<div style="color:red;font-size: small">{{ errors.verifyletterdelaydays }}</div>{% endif %}
+                <input type="text" name="verifyletterdelaydays" id="verifyletterdelaydays" value="{{ verifyletterdelaydays }}"/></dd>
+
+            <dt><label for="invite_bonus">Бонус за приглашенную компанию (после верификации той), руб.:</label></dt>
+            <dd>{% if errors.invite_bonus %}<div style="color:red;font-size: small">{{ errors.invite_bonus }}</div>{% endif %}
+                <input type="text" name="invite_bonus" id="invite_bonus" value="{{ invite_bonus }}"/></dd>
+        </dl>
+        <input type="submit" name="save_settings" id="save_settings" value="Сохранить" class="modify"/>
+    </form>
+    <script>$(document).ready(function(){
+        $('dt:even,dd:even').css({'background-color' : 'lightgray', 'margin-top' : '3px', 'margin-bottom' : '3px'});
+    });</script>
+{% endblock %}

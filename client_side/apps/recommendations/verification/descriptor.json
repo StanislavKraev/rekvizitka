@@ -1,0 +1,5 @@
+{
+    "name" : "tab_verification",
+    "requires" : ["recommendations_application", "tab_verification"],
+    "ver" : "1.1.8"
+}

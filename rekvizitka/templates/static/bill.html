@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{{ article.title }}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<style type="text/css">
+    {% load media_root %}
+    
+    @page {
+        size: A4; margin: 1cm;
+    }
+    
+    @font-face {
+        font-family: Arial;
+        src: url('{%if pdf_optimization %}{% media_root %}{% else %}/media{% endif %}/fonts/Arial/Arial.ttf');
+    }
+    @font-face {
+        font-family: ArialBold;
+        src: url('{%if pdf_optimization %}{% media_root %}{% else %}/media{% endif %}/fonts/Arial/Arial_Bold.ttf');
+    }
+    @font-face {
+        font-family: ArialItalic;
+        src: url('{%if pdf_optimization %}{% media_root %}{% else %}/media{% endif %}/fonts/Arial/Arial_Italic.ttf');
+    }
+    @font-face {
+        font-family: ArialBoldItalic;
+        src: url('{%if pdf_optimization %}{% media_root %}{% else %}/media{% endif %}/fonts/Arial/Arial_Bold_Italic.ttf');
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1em;
+        font-family: Arial;
+        background-color: white;        
+        color: black;
+        {% if pdf_optimization %}
+        background-color: #FFF;
+        {% else %}
+        background-color: lightgray;
+        {% endif %}
+    }
+    
+    {% if pdf_optimization %}
+    {% else %}
+    .wrapper {        
+        width: 19.0cm;
+        height: 27.7cm;
+        padding: 1cm;
+        margin: 0 auto;
+        background-color: #FFF;
+    }
+    {% endif %}
+    
+    a {
+        color: #FB9925;
+    }
+    h1 {
+        font-weight: normal;
+        font-size: 24px;
+        margin: 1em 0;
+        text-align: center;
+    }
+    h2 {
+        font-weight: normal;
+        font-size: 18px;
+        margin: 1em 0;
+    }
+    h3 {
+        font-family: ArialBold;
+        font-weight: bold;
+        font-size: 14px;
+        margin: 1em 0;
+    }
+        
+    p {
+        margin: 1em 0;
+    }    
+        p.resume {
+            font-size: 18px;
+            text-decoration: underline;
+        }        
+        p.remainder {
+            font-size: 18px;
+            font-family: ArialBold;
+            font-weight: bold;
+        }
+        
+    b, strong, th {
+        font-family: ArialBold;
+        font-weight: bold;
+    }
+        
+    .header {
+        margin-bottom: 2em;
+    }
+    
+    .recipient_bank_account_details {
+        width: 100%;        
+        border-collapse: collapse;
+        border: 3px solid black;
+    }
+        .recipient_bank_account_details th {
+                padding: 1em;
+                font-family: ArialBold;
+                font-weight: bold;
+                text-align: center;
+            }
+        .recipient_bank_account_details td {
+            border: 1px solid black;
+            padding: 0.5em;
+        }
+    
+    .main_data {
+        margin: 1em 0;
+    }
+    
+        .main_data .bill_positions {
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+            .main_data .bill_positions th {
+                padding: 0.5em;
+                border: 1px solid black;
+            }
+            .main_data .bill_positions td {
+                padding: 0.5em;
+                border: 1px solid black;
+            }
+            .main_data .bill_positions thead {
+            }            
+            .main_data .bill_positions td {
+                padding: 0.5em;
+                border: 1px solid black;
+            }
+            .main_data .bill_positions tbody {
+            }
+                .main_data .bill_positions tbody td {
+                    text-align: center;
+                }
+                .main_data .bill_positions tbody th {
+                    text-align: right;
+                }
+        .main_data .signatures {
+            border: none;
+            margin-top: 1em;
+        }
+            .main_data .signatures td {
+                line-height: 2.0em;
+            }            
+            .main_data .signatures td.seal {
+                text-align: center;
+                padding-top: 0.6em;
+                padding-right: 1em;
+            }
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            {% if pdf_optimization %}
+            <img src="{% media_root %}/img/logo_white_background.jpg">
+            {% else %}
+            <img src="/media/img/logo_white_background.png">
+            {% endif %}
+            <h2>{{ recipient.name }}</h2>
+            <h3>{{ recipient.address }}</h3>
+            <h3><a href="{{ host_company.rekvizitka_link }}">{{ recipient.rekvizitka_link }}</a></h3>
+        </div>
+        <h3>Образец заполнения платёжного поручения</h3>
+        <table class="recipient_bank_account_details">
+            <tr>
+                <td width="60%">Банк Получателя:<br><b>{{ recipient.bank.name }}</b></td>
+                <td width="10%">Сч.&nbsp;№</td>
+                <td><b>{{ recipient.bank.account }}</b></td>
+            </tr>
+            <tr>
+                <td>Получатель:<br><b>{{ recipient.account_name }}</b><br></td>
+                <td>БИК<br>Сч.&nbsp;№</td>
+                <td><b>{{ recipient.bank.bik }}</b><br><b>{{ recipient.account }}</b></td>
+            </tr>
+        </table>
+        <div class="main_data">
+            <h1>Счёт № {{ bill.number }} от {{ bill.date }}</h1>
+            {#<h2>Плательщик: {{ payer.name }}</h2>#}
+            <table class="bill_positions">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Наименование Товара</th>
+                        <th>Единица измерения</th>
+                        <th>Количество</th>
+                        <th>Цена, руб.</th>
+                        <th>Сумма, руб.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td width="50%">{{ bill.position }}</td>
+                        <td>шт.</td>
+                        <td>1</td>
+                        <td>{{ bill.sum.in_digits }}</td>
+                        <td>{{ bill.sum.in_digits }}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Итого</th>
+                        <td>{{ bill.sum.in_digits }}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">В том числе НДС</th>
+                        <td>без НДС</td>
+                    </tr>
+                    <tr>
+                        <th colspan="5">Всего к оплате</th>
+                        <td>{{ bill.sum.in_digits }}</td>
+                    </tr>
+                </tbody>                
+            </table>
+            <p class="resume"><b>К оплате:</b> {{ bill.sum.in_words }}</p>
+            <p class="remainder">Счёт действителен в течении 30 банковских дней.</p>
+            <table class="signatures">
+                <tbody>
+                    <tr>
+                        <td>Генеральный директор<br>Главный бухгалтер</td>
+                        <td class="seal">
+                            {% if pdf_optimization %}
+                            <img src="{% media_root %}/img/seal.png">
+                            {% else %}
+                            <img src="/media/img/seal.png">
+                            {% endif %}
+                        </td>
+                        <td>/ Аксаментов Г.Н.<br>/ Аксаментов Г.Н.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<div class="icon-set" style="display: none">
+    <a href="" class="icon pdf">pdf</a>
+    <a href="" class="icon print">print</a>
+</div>
+
+<% if (own_company){ %>
+<div class="edit_button">
+    <a href="" class="button simple edit">Редактировать</a>
+</div>
+<% } %>
+
+<% if (descr != ''){ %>
+<h3>Описание</h3>
+
+<p id="descr"><%=descrHTML%></p>
+
+<hr/>
+<% } %>
+
+<h3>Общая информация</h3>
+
+<p class="tags-list">
+<% var first=true; for (var itemId = 0; itemId < categoryElements.length; itemId += 1) {
+    var item = categoryElements[itemId];
+    if (!item.val) { continue; }
+    if (!first) { %> <span> | </span> <% } first = false; %>
+<a class="ccat_view" href="/search/?<%=item.name%>"><%- item.title %></a>
+<% } %>
+</p>
+
+<dl>
+    <dt>Торговое наименование</dt>
+    <dd id="brandName"><%-brandName%></dd>
+
+    <% if (fullName || own_company){ %>
+    <dt>Наименование юр. лица</dt>
+    <dd id="fullName"><%-fullName%></dd>
+    <% } %>
+
+    <% if (inn || own_company){ %>
+    <dt>ИНН</dt>
+    <dd id="inn"><%-inn%></dd>
+    <% } %>
+
+    <% if (kpp || own_company){ %>
+    <dt>КПП</dt>
+    <dd id="kpp"><%-kpp%></dd>
+    <% } %>
+
+    <% if (categoryText || own_company){ %>
+    <dt>Вид деятельности</dt>
+    <dd id="categoryText"><%-categoryText%></dd>
+    <% } %>
+
+    <% if (estYear || own_company){ %>
+    <dt>Год основания</dt>
+    <dd id="estYear"><%-estYear%></dd>
+    <% } %>
+
+    <% if (staffSize || own_company){ %>
+    <dt>Штат компании</dt>
+    <dd><%= staff_size_select[staffSize][1] %></dd>
+    <!--dd><%= staff_size_select_current %></dd-->
+    <% } %>
+
+    <% if (genDir || own_company){ %>
+    <dt>Руководитель компании</dt>
+    <dd id="genDir"><%-genDir%></dd>
+    <% } %>
+
+    <% if (genAcc || own_company){ %>
+    <dt>Главный бухгалтер</dt>
+    <dd id="genAcc"><%-genAcc%></dd>
+    <% } %>
+</dl>
+
+<% if ((bank || bank_address || inn || bik || correspondent_account || settlement_account || recipient) || own_company){ %>
+<hr/>
+
+<h3>Реквизиты</h3>
+
+<dl>
+    <dt>Наименование банка</dt>
+    <dd id="essentialElements-bank"><% if(bank){ %><%-bank%><% } %></dd>
+
+    <dt>Страна и город банка</dt>
+    <dd id="essentialElements-bank_address">
+        <% if (bank_address){ %><%-bank_address%><% } %>
+    </dd>
+
+    <dt>БИК</dt>
+    <dd id="essentialElements-bik"><% if (bik){ %><%-bik%><% } %></dd>
+
+    <dt>Корреспондентский счёт</dt>
+    <dd id="essentialElements-correspondent_account"><% if (correspondent_account){ %><%-correspondent_account%><% } %></dd>
+
+    <dt>Расчетный счёт</dt>
+    <dd id="essentialElements-settlement_account"><% if (settlement_account){ %><%-settlement_account%><% } %></dd>
+
+    <dt>Получатель</dt>
+    <dd id="essentialElements-recipient"><% if (recipient){ %><%-recipient%><% } %></dd>
+</dl>
+<% } %>
+
+

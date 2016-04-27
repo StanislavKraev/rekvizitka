@@ -1,0 +1,148 @@
+#we_recommend {
+    padding: 40px 49px 35px;
+    position: relative;
+}
+
+#we_recommend td {
+    vertical-align: top;
+}
+
+#we_recommend td.column1 {
+    padding: 5px 0 6px;
+}
+
+#we_recommend td.column2 {
+    width: 189px;
+    padding-left: 8px;
+    padding-right: 27px;
+    vertical-align: top;
+}
+
+#we_recommend td.column2 h5 {
+    margin-top: 3px;
+}
+
+#we_recommend td.column2 p {
+    margin: 0;
+}
+
+#we_recommend td.column3 {
+    width: 360px;
+}
+
+ul.list {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+ul.list li {
+    background-image: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+#we_recommend h5.header {
+    color: #4a8b00;
+    font-size: 14px;
+    margin: 0 0 2px;
+}
+
+h5.header a {
+    color: #4a8b00;
+}
+
+h5.header a:link,
+h5.header a:visited {
+    text-decoration: none;
+}
+
+h5.header a:hover,
+h5.header a:active {
+    text-decoration: underline;
+}
+
+#we_recommend p {
+    color: #262626;
+}
+
+#we_recommend .exp-details p {
+    font-size: 12px;
+    line-height: 17px;
+    margin-bottom: 12px;
+}
+
+#we_recommend .exp-details {
+    position: relative;
+    border: 1px solid #d6d6d6;
+
+    -mox-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    behavior: url(/media/js/PIE.htc);
+
+    padding: 6px 56px 9px 9px;
+
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+#we_recommend .exp-details.open {
+    height: auto;
+}
+
+#we_recommend .exp-details.closed p.message,
+#we_recommend .exp-details.closed,
+#we_recommend .exp-details.declined {
+    height: 33px;
+    overflow: hidden;
+}
+
+#we_recommend .exp-details .view-profile {
+    margin-bottom: 20px;
+}
+
+#we_recommend .exp-details .arrow {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+}
+
+#we_recommend .exp-details.open .arrow {
+    background: url(/media/css/icons.png) -142px -197px;
+}
+
+#we_recommend .exp-details.closed .arrow {
+    background: url(/media/css/icons.png) -93px -197px;
+}
+
+#we_recommend .exp-details.open .arrow:hover {
+    background: url(/media/css/icons.png) -93px -246px;
+}
+
+#we_recommend .exp-details.closed .arrow:hover {
+    background: url(/media/css/icons.png) -142px -246px;
+}
+
+#we_recommend .exp-details.open .arrow:hover,
+#we_recommend .exp-details.closed .arrow:hover {
+    border-left: 1px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
+    background-color: #e5e5e5;
+}
+
+#we_recommend .exp-details.declined {
+    padding-right: 9px;
+    padding-top: 15px;
+    text-align: center;
+}
+#we_recommend .exp-details.declined a{
+    text-decoration: underline;
+}
+#we_recommend hr {
+    border: none;
+    border-bottom: 1px solid #d8d8d8;
+    margin: 11px 0;
+}

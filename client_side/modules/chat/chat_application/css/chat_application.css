@@ -1,0 +1,229 @@
+.tabcontent {
+    padding: 33px 50px;
+}
+
+/*  .company.dialogs.dialogs   общие  absurdum  */
+
+.company.dialogs {
+    margin-left: -50px;
+    margin-right: -50px;
+    overflow: visible;
+}
+
+.company.dialogs li {
+    position: relative;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: -1px;
+    width: 658px;
+    padding: 0 51px 0 49px;
+    cursor: pointer;
+    background-image: none;
+}
+
+.company.dialogs li:first-child {
+    border-top-color: transparent;
+}
+
+.company.dialogs li:last-child {
+    border-bottom-color: transparent;
+}
+
+.company.dialogs li:hover {
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    background-color: #f4f4f4;
+}
+
+.company.dialogs li:hover .text-cloud {
+    background-color: #dedede;
+    border-color: #c9c9c9;
+}
+
+.company.dialogs li:hover .text-cloud b {
+    background-position: -124px -154px;
+}
+
+.company.dialogs li:hover .close {
+    display: block;
+}
+
+.company.dialogs li > table.grid {
+    width: 660px;
+}
+
+.company.dialogs .column1 {
+    width: 50px;
+    padding: 11px 0;
+}
+
+.company.dialogs .column2 {
+    width: 430px;
+    padding: 11px 0;
+}
+
+.company.dialogs .column1 a {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.company.dialogs .column2 a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.company.dialogs .text-cloud {
+    position: relative;
+    display: inline-block;
+
+    margin-left: 12px;
+    border: 1px solid #d6d6d6;
+    width: 368px;
+    padding: 6px 10px 8px;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    background-color: #f4f4f4;
+
+    line-height: 17px;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #292929;
+    height: 34px;
+}
+
+.company.dialogs .text-cloud .text-cut {
+    height: 34px;
+    overflow: hidden;
+}
+
+.company.dialogs .text-cloud b {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    background: url(/media/css/icons.png) -124px -167px no-repeat;
+
+    display: block;
+    width: 10px;
+    height: 13px;
+
+    margin-top: -6px;
+}
+
+.company.dialogs .text-cloud.unread {
+    background-color: #e2eef1;
+    border-color: #bed5d9;
+    color: #00252c;
+}
+
+.company.dialogs .text-cloud.unread b {
+    background-position: -124px -141px;
+}
+
+.company.dialogs li:hover .text-cloud.unread {
+    background-color: #cfe0e3;
+    border-color: #b4ced2;
+    color: #001d23;
+}
+
+.company.dialogs li:hover .text-cloud.unread b {
+    background-position: -124px -128px;
+}
+
+.company.dialogs .close {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    display: none;
+    width: 11px;
+    height: 11px;
+    background: url(/media/css/icons.png) -105px -139px no-repeat;
+    color: transparent;
+}
+
+.company.dialogs .close:hover {
+    background-position: -105px -128px;
+}
+
+.dialog-details {
+    padding-left: 19px;
+    padding-top: 14px;
+    padding-bottom: 0;
+    vertical-align: top;
+    width: 161px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.dialog-details{
+    padding-top: 15px;
+}
+}
+
+.dialog-details .detail-status {
+    vertical-align: top;
+    position: relative;
+}
+
+.dialog-details .detail-status b {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: 2px 5px 0 7px;
+    background: url(/media/css/icons.png) -116px -136px no-repeat;
+    position: absolute;
+    top: 1px;
+    left: -20px;
+}
+
+.dialog-details .detail-status.online b {
+    background-position: -116px -128px;
+}
+
+.company.dialogs li table.dialog-details td {
+    padding: 0;
+}
+
+.dialog-details .detail-name a {
+    color: #116f85;
+    font-size: 13px;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.dialog-details .detail-brand-name a {
+    color: #3f3f3f;
+    font-size: 12px;
+    margin-bottom: 1px;
+    display: block;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.dialog-details .detail-brand-name a {
+    margin-bottom: 2px;
+}
+}
+
+.dialog-details .detail-date {
+    color: #979797;
+    font-size: 10px;
+}
+
+.dialog-details a:link,
+.dialog-details a:visited {
+    text-decoration: none;
+}
+
+.dialog-details a:hover,
+.dialog-details a:active {
+    text-decoration: underline;
+}
+
+.dialog-details p {
+    margin: 0;
+    line-height: 1;
+}

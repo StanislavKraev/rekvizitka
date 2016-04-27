@@ -1,0 +1,8 @@
+{
+    "name" : "chat_dialog_view",
+    "requires" : [ "chat_models" ],
+    "locales" : [ "en", "ru" ],
+    "css" : [ "chat_dialog_view" ],
+    "templates" : [ "content", "messageitem" ],
+    "ver" : "1.1.3"
+}

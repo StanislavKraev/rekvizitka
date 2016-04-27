@@ -1,0 +1,32 @@
+.dlglist-container {
+    position : relative;
+    padding : 20px;
+    background-color: #ccffcc;
+}
+
+.dlglist-container .dlglist-dlgs {
+
+}
+
+.dlglist-container .dlglist-pagination {
+
+}
+
+#dialog_list .paginator {
+    margin-left:0;
+}
+
+#dialog_list .column1 a:hover img{
+    border-color:#858585;
+}
+
+img.author-icon {
+    border: 1px solid #b0b0b0;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+    background-color: #B0B0B0;
+    vertical-align : -9px;
+}

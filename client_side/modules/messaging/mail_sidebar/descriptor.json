@@ -1,0 +1,7 @@
+{
+    "name" : "mail_sidebar",
+    "requires" : ["folder-list", "template-store", "common_models"],
+    "templates" : ["sidebar"],
+    "ver" : "1.0.0"
+
+}

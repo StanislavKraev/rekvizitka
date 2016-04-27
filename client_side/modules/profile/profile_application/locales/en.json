@@ -1,0 +1,7 @@
+{
+    "errorCantSaveContacts" : "Couldn't save changes in contacts",
+    "errorCantSaveChanges" : "Couldn't save changes",
+    "errorCantSaveAbout" : "Couldn't save changes in company info",
+    "about" : "About",
+    "contacts" : "Contacts"
+}

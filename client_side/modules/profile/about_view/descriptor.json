@@ -1,0 +1,7 @@
+{
+    "src" : "about_view",
+    "name" : "profile_about_view",
+    "templates" : ["content","content_edit"],
+    "css" : ["about_view"],
+    "ver" : "1.3.1"
+}

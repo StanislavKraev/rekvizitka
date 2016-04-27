@@ -1,0 +1,73 @@
+.modalbox.editsettings {
+    background-color:#686868;
+    padding: 0;
+}
+
+.modalbox.editsettings .modalbox-title {
+    height: 39px;
+    background-color:#686868;
+    vertical-align: middle;
+    color:white;
+    display: block;
+    padding: 0 15px 0 20px;
+    border-radius: 6px 6px 0 0;
+    text-align: left;
+    line-height: 39px;
+    font-size: 15px;
+    position: relative;
+}
+
+.modalbox.editsettings .modalbox-title .cross-btn {
+    width:14px;
+    height:14px;
+    right: 14px;
+    top:12px;
+    position: absolute;
+    background: url(/media/css/icons.png) -103px -150px no-repeat;
+    cursor: pointer;
+}
+
+.modalbox.editsettings .modalbox-title .cross-btn:hover {
+    background-position: -103px -164px;
+}
+
+.modalbox.editsettings .modalbox-content {
+    background-color: #fff;
+    padding: 39px 10px 28px 39px;
+    font-size: 14px !important;
+    color: #000 !important;
+}
+
+.modalbox.editsettings .modalbox-content p{
+    margin-bottom:12px;
+}
+
+.modalbox.editsettings .modalbox-content  .selectBox-dropdown{
+    margin-left:5px;
+}
+
+.selectBox-options li a,
+.modalbox.editsettings .modalbox-content select,
+.modalbox.editsettings .modalbox-content label.checkbox{
+    font-size: 14px !important;
+}
+
+.modalbox.editsettings .modalbox-content label.checkbox span {
+    top: 1px;
+}
+
+.modalbox.editsettings .modalbox-content p {
+    text-align: left;
+}
+
+.modalbox.editsettings .modalbox-content textarea {
+    width: 398px;
+    height: 135px;
+    margin-bottom: 20px;
+}
+
+.modalbox.editsettings .modalbox-buttons {
+    border-top: 1px solid #c4c4c4;
+    border-radius: 0 0 6px 6px;
+    padding: 9px;
+}

@@ -1,0 +1,37 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+    <link href="/media/css/south-street/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/media/js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/ads/">Рекламные, промо-акции</a></h3>
+    <h4>Редактирование промо-кода {{ code.id }}</h4>
+
+    {% if errors.general %}<div style="color:red;">{{ errors.general }}</div>{% endif %}
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <dl>
+            <dt>Промо-код:</dt>
+            <dd>{{ code.code }}</dd>
+
+            <dt>Цена:</dt>
+            <dd>{{ code.price.amount }} руб.</dd>
+
+            <dt>Дата использования:</dt>
+            <dd>{{ code.used_date }}</dd>
+
+            <dt>Компания:</dt>
+            <dd><a href="/search/companies/{{ code.company.rek_id }}/">{{ code.company.brand_name }}</a></dd>
+
+            <dt>Промо-акция:</dt>
+            <dd><a href="{{ code.promo_action_url }}">{{ code.promo_action.comment|truncatewords:5 }}</a></dd>
+        </dl>
+        {% if code.used_date %}
+            <input type="submit" name="clear_promo_code" id="clear_promo_code" value="Сбросить" class="modify"/>
+        {% else %}
+            <input type="submit" name="use_promo_code" id="use_promo_code" value="Использовать" class="modify"/>
+        {% endif %}
+    </form>
+{% endblock %}

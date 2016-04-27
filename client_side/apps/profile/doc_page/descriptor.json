@@ -1,0 +1,5 @@
+{
+    "name" : "profile_doc_app",
+    "requires" : ["profile_application", "profile_doc_view"],
+    "ver" : "1.0.3"
+}

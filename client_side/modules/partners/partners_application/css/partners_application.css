@@ -1,0 +1,68 @@
+
+/* tricky list */
+
+.tricky-list {
+    padding: 0;
+    margin-left: -49px;
+    margin-right: -49px;
+}
+
+.tricky-list li {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-image: none;
+    padding: 9px 0 9px 49px;
+    margin-bottom: 0;
+}
+
+.tricky-list li:hover {
+    background-color: #deecef;
+    border-top: 1px solid #cadde0;
+    border-bottom: 1px solid #cadde0;
+}
+
+.tricky-list .column2 {
+    vertical-align: top;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 230px;
+}
+
+.tricky-list .column2 h5 {
+    margin: -1px 0 4px;
+    line-height: 1;
+    color: #4a8b00;
+    font-size: 14px;
+}
+
+.tricky-list .column2 h5 a {
+    color: #4a8b00;
+    text-decoration: none;
+}
+
+.tricky-list .column2 p {
+    margin-bottom: 0;
+}
+
+.tricky-list .column3{
+    padding-top:2px;
+}
+
+/* Firefox Only */
+@-moz-document url-prefix() {
+.tricky-list .column3{
+    padding-top:0px;
+}
+}
+
+.tricky-list .column3 .cancel a{
+    text-decoration:underline;
+}
+
+.tricky-list .column3 .hover-box{
+    visibility: hidden;
+}
+
+.tricky-list li:hover .column3 .hover-box{
+    visibility: visible;
+}

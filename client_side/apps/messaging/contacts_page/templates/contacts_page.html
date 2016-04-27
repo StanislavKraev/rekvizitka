@@ -1,0 +1,13 @@
+{% extends "apps/messaging/templates/messaging.html" %}
+{% load portal %}
+{% block preload_app %}
+    <script type="text/javascript" src="{% client_app_ver "messaging_contacts_app" "ru" %}"></script>
+    <script type="text/javascript">
+    YUI.add('main_portal__init', function(Y) {
+        Y.MainPortal__init = {
+            initialModule : "{% client_mod_ver "messaging_application" %}",
+            initialClass : "MessagingApplication"
+        }
+    });
+    </script>
+{% endblock %}

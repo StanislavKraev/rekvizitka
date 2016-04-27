@@ -1,0 +1,7 @@
+{
+    "errorCantSendBill" : "Couldn't send the bill",
+    "billSent" : "The bill has been sent on the e-mail",
+    "statusNotPaid" : "Not paid",
+    "errorCantCheckout" : "Couldn't check out",
+    "errorCantRequestRecommend" : "Couldn't request a recommendation"
+}

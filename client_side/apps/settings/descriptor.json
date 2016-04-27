@@ -1,0 +1,5 @@
+{
+    "name" : "profile_settings_app",
+    "requires" : ["settings_application", "profile_settings_view", "profile_additional_settings_view"],
+    "ver" : "1.0.9"
+}

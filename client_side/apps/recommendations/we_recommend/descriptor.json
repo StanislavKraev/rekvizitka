@@ -1,0 +1,5 @@
+{
+    "name" : "tab_we_recommend",
+    "requires" : ["recommendations_application", "tab_we_recommend"],
+    "ver" : "1.1.7"
+}

@@ -1,0 +1,44 @@
+#contacts{
+	padding: 55px 50px;
+	position:relative;
+}
+
+#contacts .edit-mode dl dt{
+	width:55px;
+}
+#contacts .edit-mode p{
+	margin-bottom: 7px;
+	margin-top: 17px;
+	overflow: hidden;
+}
+#contacts .edit-mode h3 a{
+	margin-left:8px;
+	font-weight: normal;
+}
+
+
+
+
+
+.office .file-uploader{
+	overflow: hidden;
+	position: relative;
+	width:125px;
+}
+
+.office .file-uploader input{
+	font-size:50px !important;
+	height:50px  !important;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor: pointer;
+}
+
+
+
+
+#contacts .icon-set{
+	display:none;
+}
+

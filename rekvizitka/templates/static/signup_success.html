@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="/media/css/rek_static.css"/>
+{% endblock %}
+
+{% block title %}Регистрация успешна - Rekvizitka.Ru{% endblock %}
+
+{% block content %}
+
+<div class="width_limiter">
+<h1>Добро пожаловать!</h1>
+<p class="description">Вы успешно зарегистрированы.<br/>
+Сгенерированный пароль и счёт отправлен на указанный адрес <strong>{{ email }}</strong>.
+{% if promo %}
+<br/> Промо код <strong>{{ promo.promo_code }}</strong> активирован.
+{% endif %}
+</p>
+</div>
+{% endblock %}
+

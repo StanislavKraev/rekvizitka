@@ -1,0 +1,18 @@
+{% extends "layouts/main_with_breadcrumbs.html" %}
+
+{% block title %}Регистрация успешна - Rekvizitka.Ru{% endblock %}
+
+{% block breadcrumbs %}
+    <li class="first"><a href="/"><span class="link_text">Rekvizitka.Ru</span><span class="slash">/</span></a></li>
+    <li class="last active"><a href="../"><span class="link_text">Регистрация успешна</span><span class="slash">/</span></a></li>
+{% endblock %}
+
+{% block content %}
+<h2>Добро пожаловать!</h2>
+<p>Вы успешно зарегистрированы.<br/>
+    Сгенерированный пароль отправлен на указанный адрес <strong>{{ email }}</strong>.<br/>
+</p>
+{% if promo %}
+<p>Промо код <b>{{ promo.promo_code }}</b> - активирован.</p>
+{% endif %}
+{% endblock %}

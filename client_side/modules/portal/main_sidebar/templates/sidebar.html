@@ -1,0 +1,24 @@
+<div class="logo-box <%- logo_type %>">
+
+    <% if (own){ %>
+    <a class="<%- kind_of_hint %>"><%- file_upload_title %></a>
+
+    <div id="file-uploader">
+        <div title="<%- file_upload_title %>"></div>
+    </div>
+    <% } %>
+
+    <img id="avatar-logo" src="<%-img.src%>" alt="<%-img.alt%>" width="186" height="93">
+
+</div>
+
+<% if(authorized) { %>
+    <% if (send_msg) { %>
+        <a href="/chat/start_dialog/<%= eid %>/" class="button action send">Написать сообщение</a>
+    <% } %>
+
+    <% if (can_add_partner) { %>
+        <a class="button long add-to-contractor-request">Добавить в контрагенты</a>
+    <% } %>
+<% } %>
+

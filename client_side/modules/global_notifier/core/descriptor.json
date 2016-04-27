@@ -1,0 +1,6 @@
+{
+    "name" : "global_notifier_core",
+    "requires" : ["server_channel_manager", "chat_dialog_manager"],
+    "locales" : ["ru", "en"],
+    "ver" : "1.0.1"
+}

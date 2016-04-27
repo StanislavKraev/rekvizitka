@@ -1,0 +1,12 @@
+{
+    "currentPassword" : "Текущий пароль",
+    "newPassword" : "Новый пароль",
+    "newConfirm" : "Повторите пароль",
+    "forgotPassword" : "Забыли пароль?",
+    "errorBadConfirm" : "Повтор пароля не совпадает с новым паролем",
+    "errorShortPassword" : "Пароль слишком короткий. Минимальная длина пароля - 6 символов",
+    "errorSameAsCurrent" : "Текущий и новый пароли не должны совпадать",
+    "errorNoCurrent" : "Укажите текущий пароль",
+    "errorBadConnect" : "Ошибка соединения с сервером",
+    "saveNewPasswordSuccess" : "Новый пароль успешно сохранён"
+}

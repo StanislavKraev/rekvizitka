@@ -1,0 +1,8 @@
+{
+    "name":"feedback_application",
+    "requires":[ "locales_global", "template-store", "general_portlet", "informer" ],
+    "locales":[ "en", "ru" ],
+    "templates":[ "content" ],
+    "css":[ "style" ],
+    "ver":"1.1.13"
+}

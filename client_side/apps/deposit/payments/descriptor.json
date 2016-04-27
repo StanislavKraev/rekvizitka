@@ -1,0 +1,5 @@
+{
+    "name" : "tab_payments",
+    "requires" : ["deposit_application", "tab_payments"],
+    "ver" : "1.1.6"
+}

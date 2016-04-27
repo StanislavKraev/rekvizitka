@@ -1,0 +1,17 @@
+<table class="grid">
+    <tr>
+        <td class="column1">
+            <a href="<%=employee_url%>" class="round" title="<%-corrName%>"><img src="<%=visavisAvatar%>" width="48" height="48" alt=""/></a>
+        </td>
+        <td class="dialog-details">
+                <p class="detail-name detail-status offline"><b></b><a href="<%=employee_url%>" title="<%-corrName%>"><%-corrName%></a></p>
+                <p class="detail-brand-name"><a href="<%=company_url%>" title="<%-compName%>"><%-compNameCut%></a></p>
+                <p class="detail-date"><%-lastMsgTime%></p>
+        </td>
+        <td class="column2">
+            <img src="<%=authorIcon%>" width="23" height="23" alt="<%-authorName%>" title="<%-authorName%>" class="author-icon"/>
+            <div class="text-cloud <% if(isUnread) { %>unread<% } %>" title="<%=lastMsgText%>"><div class="text-cut"><%=lastMsgTextCut%></div><b></b></div>
+        </td>
+    </tr>
+</table>
+<a class="close" title="<%-loc_hide_dialog%>">X</a>

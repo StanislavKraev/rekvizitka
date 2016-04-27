@@ -1,0 +1,18 @@
+{% extends "base_portal.html" %}
+{% load portal %}
+{% block doc_end %}
+    <script type="text/javascript">
+        YUI.add('main_portal__init', function(Y,result) {
+            Y.SearchAppSettings_init = {{ search_initials }};
+            Y.MainPortal__init = {
+                mainPortlet : "{% client_mod_ver "search_application" %}",
+                mainPortletClass : "SearchApplication"
+            };
+        });
+    </script>
+    <script type="text/javascript" src="{% client_app_ver "search_app" "ru" %}"></script>
+    {{ block.super }}
+{% endblock %}
+{% block extra_head %}{{ block.super }}
+    <link href="{% client_app_css_ver "search_app" "ru" %}" rel="stylesheet" type="text/css" />
+{% endblock %}

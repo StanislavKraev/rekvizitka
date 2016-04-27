@@ -1,0 +1,45 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+    <link href="/media/css/south-street/jquery-ui-1.8.9.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/media/js/jquery/jquery-ui-1.8.16.custom.min.js"></script>
+    <style>form table input{width: 100px;}</style>
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3>Перевод средств на депозит</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {% if errors.general %}
+                <tr style="color:red"><td colspan="2">{{ errors.general }}</td></tr>
+            {% endif %}
+
+            {% if errors.company_rek_id %}
+                <tr style="color:red"><td colspan="2">{{ errors.company_rek_id }}</td></tr>
+            {% endif %}
+            <tr>
+                <td><label for="company_rek_id">Rek-Id компании:</label></td>
+                <td><input type="text" name="company_rek_id" id="company_rek_id" value="{{ company_rek_id }}"></td>
+            </tr>
+
+            {% if errors.amount %}
+                <tr style="color:red"><td colspan="2">{{ errors.amount }}</td></tr>
+            {% endif %}
+            <tr>
+                <td><label for="amount">Сумма (руб.)</label></td>
+                <td><input type="text" name="amount" id="amount" value="{{ amount }}"></td>
+            </tr>
+
+            {% if errors.comment %}
+                <tr style="color:red"><td colspan="2">{{ errors.comment }}</td></tr>
+            {% endif %}
+            <tr>
+                <td><label for="comment">Комментарий</label></td>
+                <td><input type="text" name="comment" id="comment" value="{{ comment }}" style="width: 600px"></td>
+            </tr>
+        </table>
+        <input type="submit" name="transfer" id="transfer" value="Перевести" class="modify"/>
+        <a href="/finances/" title="Отмена" class="button">Отмена</a>
+    </form>
+{% endblock %}

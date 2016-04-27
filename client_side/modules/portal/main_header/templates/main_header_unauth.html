@@ -1,0 +1,67 @@
+<table>
+    <tr>
+        <td class="input-field">
+            <input type="text" class="text" name="username" placeholder="E-mail" tabindex="1"
+                   onkeyup="if(this.value.length){this.style.color='#000';}else{this.style.color='#858585';}"><br/>
+            <input type="checkbox" class="checkbox" id="publicpc" name="publicpc"><label for='publicpc' tabindex=4><span></span>Чужой
+            компьютер</label><br/>
+        </td>
+        <td class="input-field password exit">
+            <input type="password" class="password" name="password" tabindex=2
+                   onkeyup="if(this.value.length){this.style.color='#000';}else{this.style.color='#858585';}"
+                   placeholder="Пароль">
+            <br/>
+            <a href="/password-recovery/" title="" tabindex=5>Забыли пароль?</a><br/>
+        </td>
+        <td class="input-field exit">
+            <a class="submit button action" name="login" tabindex=3>Войти</a><br/>
+            <a class="registration-link" href="/" title="" tabindex=6>Регистрация</a>
+        </td>
+        <td class="width100">
+        </td>
+    </tr>
+</table>
+
+<script>
+    var form1 = $('form.login-form');
+
+    $('.password', form1).keypress(function(e){
+        var code = e.keyCode || e.which;
+        if (code === 13) {
+            $('.submit',form1).click();
+            return false;
+        }
+    });
+
+    $('.submit',form1).click(function(){
+//        var email = /^[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$/,
+//            fields = {
+//                email : $('input.text',form1),
+//                password : $('input.password',form1)
+//            }, flag = 0;
+//
+//    for(var key in fields){
+//        if(!fields[key].val().length){
+//            flag=-~flag;
+////                    fields[key].addClass('error').next('div.error').text('Это поле не может быть пустым');
+//        }
+//    }
+//
+//    if (fields.password.val().length < 6 && fields.password.val().length > 0) {
+//        flag=-~flag;
+//    }
+//
+//    if (fields.email.val().length > 255) {
+//        flag=-~flag;
+//    }else if(!email.test(fields.email.val()) && fields.email.val().length > 0){
+//        flag=-~flag;
+//    }
+//
+//    if (!flag){
+//        form1.submit();
+//    }
+//    return false
+    form1.submit();
+    return false;
+});
+</script>

@@ -1,0 +1,8 @@
+{
+    "name" : "pagination",
+    "src" : "pagination",
+    "templates" : ["ul", "li", "holder", "table", "td"],
+    "css" : ["pagination"],
+    "ver" : "1.0.4"
+
+}

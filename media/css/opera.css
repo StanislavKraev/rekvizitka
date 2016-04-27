@@ -1,0 +1,54 @@
+
+/* стиль только для Opera 12.00+ */
+
+@media (min-resolution: .001dpcm) {
+
+    /* home  page */
+
+    _:-o-prefocus, .intro-text {
+        height: 115px;
+        padding-left: 2px;
+    }
+
+    _:-o-prefocus, .reg-form h1 {
+        margin-top:1px;
+        margin-bottom:21px;
+    }
+
+    _:-o-prefocus, .ndash{
+        vertical-align: 2px;
+    }
+
+    _:-o-prefocus, .reg-form input[type=text],
+    _:-o-prefocus, .reg-form input[type=password] {
+        padding-left: 11px;
+        width: 297px;
+    }
+
+    _:-o-prefocus, #content #promo_code_part1,
+    _:-o-prefocus, #content #promo_code_part2 {
+        width: 32px;
+    }
+
+    /* other pages*/
+
+    _:-o-prefocus, .logged-in .name-title h3 {
+        margin-top: 13px;
+    }
+
+    _:-o-prefocus, #company-header h1 {
+        margin: 1px 0 7px;
+    }
+}
+
+/* Opera 11 */
+
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
+
+    head~body .intro-text {
+        height: 116px;
+        padding-left: 12px;
+    }
+
+}
+

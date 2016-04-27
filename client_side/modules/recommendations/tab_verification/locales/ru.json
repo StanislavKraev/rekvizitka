@@ -1,0 +1,7 @@
+{
+    "errorCantSendBill" : "Не удалось отправить счет",
+    "billSent" : "Счет выслан на почтовый адрес, указанный при регистрации",
+    "statusNotPaid" : "Не оплачено",
+    "errorCantCheckout" : "Не удалось выписать счет",
+    "errorCantRequestRecommend" : "Не удалось запросить рекомендацию"
+}

@@ -1,0 +1,11 @@
+form {
+    margin-top: 1em;
+}
+
+.form .row input[type="text"],
+.form .row input[type="password"],
+.form .row .button{
+    color: #000000;
+    font-size: 1.2em;
+    padding: 3px 6px;
+}

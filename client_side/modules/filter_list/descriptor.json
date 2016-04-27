@@ -1,0 +1,6 @@
+{
+    "name" : "filter-list",
+    "src" : "filter_list",
+    "locales" : ["ru", "en"],
+    "ver" : "1.0.0"
+}

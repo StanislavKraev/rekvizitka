@@ -1,0 +1,24 @@
+{
+    "buttons":{
+        "send":"Send",
+        "cancel":"Cancel",
+        "ok":"OK",
+        "save" : "Save"
+    },
+
+    "error":"Error",
+
+    "messages":{
+        "wrong":{
+            "email":"Wrong email",
+            "sending":"Sending problems"
+        },
+        "good":{
+            "sending":"Sent successfull"
+        },
+        "error":{
+            "server":"Some server ERROR",
+            "empty":"Shouldn't be empty"
+        }
+    }
+}

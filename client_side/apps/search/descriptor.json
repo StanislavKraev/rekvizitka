@@ -1,0 +1,5 @@
+{
+    "name" : "search_app",
+    "requires" : ["search_application", "template-store"],
+    "ver" : "1.1.5"
+}

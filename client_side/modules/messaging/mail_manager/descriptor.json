@@ -1,0 +1,7 @@
+{
+    "name" : "mail_manager",
+    "src" : "mail_manager",
+    "requires" : ["mail_models", "utils"],
+    "ver" : "1.0.0"
+
+}

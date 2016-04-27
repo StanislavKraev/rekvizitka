@@ -1,0 +1,7 @@
+{
+    "name" : "tab_payments",
+    "src" : "tab_payments",
+    "templates" : ["content"],
+    "css" : ["style"],
+    "ver" : "1.1.2"
+}

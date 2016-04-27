@@ -1,0 +1,301 @@
+{% load media_root %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>REK-визитка №{{ rek_code }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+
+
+        @page {
+            size: A4;
+            margin: 2cm 1cm 2cm 2cm;
+
+            @frame footer {
+               -pdf-frame-content: footerContent;
+                margin-left: 2cm;
+                margin-right: 1cm;
+                bottom: 1cm;
+                height: 1cm;
+            }
+
+            @frame header {
+               -pdf-frame-content: headerContent;
+                top: 1cm;
+                margin-left: 2cm;
+                margin-right: 1cm;
+                height: 1cm;
+            }
+
+        }
+
+        @font-face {
+            font-family: Arial;
+            src: url('{% media_root %}/fonts/Arial/Arial.ttf');
+        }
+        @font-face {
+            font-family: ArialBold;
+            src: url('{% media_root %}/fonts/Arial/Arial_Bold.ttf');
+        }
+        @font-face {
+            font-family: ArialItalic;
+            src: url('{% media_root %}/fonts/Arial/Arial_Italic.ttf');
+        }
+        @font-face {
+            font-family: ArialBoldItalic;
+            src: url('{% media_root %}/fonts/Arial/Arial_Bold_Italic.ttf');
+        }
+
+        #footerContent{
+            font-family: "Arial", Tahoma, sans-serif;
+            }
+
+        #headerContent{
+            text-align:left;
+            font-family: "Arial", Tahoma, sans-serif;
+        }
+
+        body {
+        color: #898989;
+        font-family: Arial, Tahoma, sans-serif;
+        font-size: 12pt;
+        }
+
+        h1 {
+        color: #363636;
+        font-size: 18pt;
+        font-family: "Arial", Tahoma, sans-serif;
+        text-align: left;
+        }
+
+        h2 {
+        padding-top:15px;
+        color: #363636;
+        font-family: "Arial", Tahoma, sans-serif;
+        font-size: 16pt;
+        }
+
+        h3 {
+        color: #363636;
+        font-size: 16pt;
+        font-family: "Arial", Tahoma, sans-serif;
+        }
+
+        h4 {
+        font-size: 12pt;
+        font-family: "Arial", Tahoma, sans-serif;
+        }
+
+        h4 span {
+        color: #119948;
+        }
+
+        tr {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        }
+
+        .key{
+        padding-left: 20px;
+        color: rgb(139,122,105);
+        }
+
+        .value{
+        padding-left: 10px;
+        color: #000;
+        }
+
+        p.description {
+        font-size: 12pt;
+        color: #000;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        }
+
+        h1.logo {
+        vertical-align: middle;
+        }
+
+        .company_info{
+        padding-left:0px;
+        }
+
+        .footer{
+        align: bottom;
+        }
+
+        .watermark_left{
+        font-size: 10pt;
+        color: #119948;
+        }
+
+        .watermark_right{
+        font-size: 10pt;
+        color: #119948;
+        }
+
+
+        </style>
+</head>
+<body>
+
+<div id="footerContent">
+    <span class="watermark_left"><a href="http://rekvizitka.ru"><img src="{% media_root %}/img/logo_white_background.jpg" height="40px"></a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+
+    <span class="watermark_right">
+    Страница <pdf:pagenumber />
+    </span>
+</div>
+ 
+<div id="headerContent"><h4>REK-визитка <span>№{{ rek_code }}</span></h4></div>
+<div class="company_info">
+    <table border="0" cellspacing="0" cellpadding="0" width="18cm" height="100%">
+    <tr>
+    <td>
+
+        <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+        <td>
+        <h1 class="logo">{{ company.get_name|safe }}</h1>
+        </td>
+        <td width="{{ company.get_logo.width }}" align="right">
+
+        <img src="{% if pisa_name %}{{ pisa_name }}{% else %}{{ company.get_logo.path }}{% endif %}" height="{{ company.get_logo.height }}" width="{{ company.get_logo.width }}" border="0">
+
+        </td>
+        </tr>
+        </table>
+
+    </td>
+    </tr>
+    <tr>
+    <td><p class="description">{{ company.description }}</p></td>
+    </tr>
+    <tr>
+    <td>
+         <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+         <tr>
+         <td></td>
+         </tr>
+         </table>
+    <tr>
+    <td>
+        {% if company.fullname or company_postal_address or company_legal_address  or company.inn  or company.kpp %}
+        <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+        <tr><td width="140" valign="top"><span class="key">Полное наименование</span></td><td valign="top"><span class="value">{{ company.get_full_name|safe }}</span></td></tr>
+        <tr><td width="140" valign="top"><span class="key">Наименование</span></td><td valign="top"><span class="value">{{ company.get_name|safe }}</span></td></tr>
+        <tr><td width="140" valign="top"><span class="key">Орг.-правовая форма</span></td><td valign="top"><span class="value">{% if opf %}{{ opf }}{% else %} Не указана {% endif %}</span></td></tr>
+
+        {% for address in company_addresses %}
+        {% if address.address_view %}
+            <tr><td width="140" valign="top"><span class="key">{{ address.address_type|capfirst }} адрес</span></td><td valign="top"><span class="value">{{ address.address }}</span></td></tr>
+            {% for address_email in address.emails %}
+            <tr><td width="140" valign="top"><span class="key">Email</span></td><td valign="top"><span class="value"><a href="mailto:{{ address_email }}">{{ address_email }}</a>{% if address_email.comment %}<br>{{ address_email.comment }}{% endif %}</span></td></tr>
+            {% endfor %}
+            {% for  address_phone in address.phones %}
+             <tr><td width="140" valign="top"><span class="key">{{ address_phone.type }}</span></td><td valign="top"><span class="value">{{ address_phone }}{% if address_phone.comment %}<br>{{ address_phone.comment }}{% endif %}</span></td></tr>
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+
+         <tr><td width="140" valign="top"><span class="key">ИНН</span></td><td valign="top"><span class="value">{{ company.inn }}</span></td></tr>
+         <tr><td width="140" valign="top"><span class="key">КПП</span></td><td valign="top"><span class="value">{{ company.kpp }}</span></td></tr>
+        </table>
+        {% endif %}
+    </td>
+    </tr>
+    {% if visible_accounts|length %}
+    <tr>
+    <td>
+
+        <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+        <td><h2>Банковские реквизиты</h2></td>
+        </tr>
+        {% for account in visible_accounts %}
+            <tr>
+            <td>
+            <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+            {% ifnotequal visible_accounts|length 1 %}
+            <tr>
+            <td><h3>Счёт {{ forloop.counter }}</h3></td>
+            </tr>
+            {% endifnotequal %}
+            <tr>
+            <td>
+            <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+                 <tr><td width="140" valign="top"><span class="key">Банк</span></td><td valign="top"><span class="value">{{ account.bank.name }}</span></td></tr>
+                 <tr><td width="140" valign="top"><span class="key">БИК</span></td><td valign="top"><span class="value">{{ account.bank.id|stringformat:"09d" }}</span></td></tr>
+                 <tr><td width="140" valign="top"><span class="key">Расчётный счёт</span></td><td valign="top"><span class="value">{{ account.settlement_account }}</span></td></tr>
+                 <tr><td width="140" valign="top"><span class="key">Корреспондентский счёт</span></td><td valign="top"><span class="value">{{ account.correspondent_account }}</span></td></tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    </td>
+    </tr>
+    {% endif %}
+    <tr>
+    <td>
+        <table border="0px" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+        <td><h2>Дополнительные сведения</h2></td>
+        </tr>
+            <tr>
+            <td>
+            <table border="0px" sellspacing="0" cellpadding="0" width="100%">
+                <tr><td width="140" valign="top"><span class="key">Вид деятельности</span></td><td valign="top"><span class="value">{% if company.category_text %}{{ company.category_text }}{% else %} Не указан {% endif %}</span></tr>
+                <tr><td width="140" valign="top"><span class="key">Год основания</span></td><td valign="top"><span class="value">{% if company.date_creation %}{{ company.date_creation|date:"Y" }}{% else %} Не указан {% endif %}</span></td></tr>
+                <tr><td width="140" valign="top"><span class="key">Штат компании</span></td><td valign="top"><span class="value">{% if company.staff_size %}{{ company.staff_size }}{% else %} Не указан {% endif %}</span></td></tr>
+                {% for website in web_sites %}
+                {% ifnotequal website 'http://' %}
+                <tr><td width="140" valign="top"><span class="key">Сайт</span></td><td valign="top"><span class="value"><a href="{{ website }}">{{ website }}</a></span></td></tr>
+                {% endifnotequal %}
+                {% endfor %}
+            </table>
+            </td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    {% if company.companyemployee_set.all|length %}
+    <tr>
+    <td>
+        <table border="0px" sellspacing="0" cellpadding="0" width="100%">
+        <tr>
+        <td><h2>Руководство</h2></td>
+        </tr>
+            <tr>
+            <td>
+            <table border="0px" sellspacing="0" cellpadding="0" width="100%">
+                {% for employee in company.companyemployee_set.all %}
+                <tr><td width="140" valign="top"><span class="key">{{ employee.title }}</span></td><td><span class="value">{{ employee.full_name }}</span></td></tr>
+                {% endfor %}
+            </table>
+            </td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+    {% endif %}
+    </tr>
+    </table>
+
+</div>
+</body>
+</html>

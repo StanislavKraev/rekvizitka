@@ -1,0 +1,9 @@
+{
+    "name" : "main_sidebar",
+    "requires" : [ "locales_global", "template-store" ],
+    "templates" : [ "sidebar", "sidebar_ul", "sidebar_li", "contractors",
+                    "contractors_ul", "contractors_li", "search_li", "edit_logo", "loader", "search_sidebar" ],
+    "css" : [ "sidebar" ],
+    "locales" : [ "en", "ru" ],
+    "ver" : "1.3.12"
+}

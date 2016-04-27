@@ -1,0 +1,100 @@
+header .input-field.password input.password{
+    -pie-watch-ancestors: 1;
+}
+
+header .part-dynamic td input.text,
+header .part-dynamic td input.password {
+    height: 21px;
+    padding-top: 4px;
+}
+header .sub-menu-item{
+    padding-bottom: 1px;
+}
+
+.logged-out .submit,
+.reg-form .submit{
+    position:relative;
+    z-index:0;
+}
+
+header .search-box input{
+    position:relative;
+    z-index:0;
+}
+
+button.submit{
+    position:relative;
+    z-index:-1;
+}
+
+header .search-box input.text {
+    line-height: 17px;
+}
+
+/*.logged-out label{*/
+    /*position: relative;*/
+    /*top:-1px;*/
+/*}*/
+
+.logged-out .submit {
+    text-shadow: #709c45 1px 1px 0;
+    position:relative;
+}
+
+
+
+.reg-form .submit{
+    text-shadow: #709c45 1px 1px 0;
+    line-height: 37px;
+}
+
+.reg-form input{
+    line-height: 25px;
+}
+
+.reg-form input[type=text],
+.reg-form input[type=password] {
+    /*padding-top: 1px;*/
+    /*height:25px;*/
+
+    padding-left: 11px;
+    width: 297px;
+}
+
+#content #promo_code_part1,
+#content #promo_code_part2 {
+    width: 32px;
+}
+
+.ndash{
+    vertical-align:2px;
+}
+
+
+.beforelogin #content td.column1 ul {
+    margin-bottom: 57px;
+}
+.beforelogin #content td.column1 ul li {
+    background-position:0 5px;
+}
+.beforelogin #content td.column1 ul li.last {
+    background-position:0 6px;
+}
+
+.input-field.password label{
+    display:inline;
+}
+
+#tiptip_content {
+    padding: 5px 10px 7px;
+}
+
+.intro-text{
+    padding-left: 2px;
+}
+
+
+label.checked span{
+    background: url(/media/css/icons.png) -158px -142px no-repeat !important;
+}
+

@@ -1,0 +1,120 @@
+<div id="navigation">
+ {% block navigation %}
+    <div class="navigation_content">
+        {% block navigation_links %}
+        <ul class="links">
+            {% if not user.is_authenticated %}
+            <li class="first"><a href="/">Главная</a></li>
+            <li class=""><a href="/features">Возможности</a></li>
+            <li class="last"><a href="/static/contacts">Контакты</a></li>
+            {% else %}
+            <li class="first"><a href="/">К реквизитке</a></li>
+            <li class=""><a href="/features">Возможности</a></li>
+            <li class="last"><a href="/static/contacts">Контакты</a></li>
+            {% endif %}
+        </ul>
+        {% endblock %}
+        {% block authorization_indication %}
+        {% if not user.is_authenticated %}
+        <ul class="authorization">
+            {% ifnotequal PATH '/' %}
+            <li class="first signup active"><a class="navigation_signup" href="javascript:void(0);">Получить реквизитку</a></li>
+            {% endifnotequal %}
+            <li class="firstlast login"><a class="navigation_login" href="javascript:void(0);">Войти</a></li>
+        </ul>
+        <script type="text/javascript" src="/media/js/rek/navigation_login_form.js"></script>
+        <div class="signin_block" {% if not login_error and not login_disabled and not show_login_form %} style="display:none;"{% endif %}>
+            <form action="/" method="POST" class="top_login_form">
+                {% csrf_token %}
+                    <ul>
+                        <li>
+                            {% if login_disabled %}
+                                <p class="emailerror">Учетная запись {{ top_signin_form.username.value }} в настоящее время заблокирована!</p>
+                            {% endif %}
+                            {% if login_error or top_signin_form.username.errors %}
+                                <p class="emailerror">Неправильный логин или пароль!</p>
+                                {{ top_signin_form.username.errors }}
+                                <label for="id_username">логин (e-mail)</label>
+                                <input type="text" name="username" value="{{ top_signin_form.username.value }}"
+                                       id="id_username" alt="логин (e-mail)" class="error"/>
+                            {% else %}
+                                <p class="emailerror"></p>
+                                <label for="id_username">логин (e-mail)</label>
+                                {{ top_signin_form.username }}
+                            {% endif %}
+                        </li>
+                        <li>
+                            <p class="passerror"></p>
+                            {% if login_error or top_signin_form.password.errors %}
+                                {{ top_signin_form.password.errors }}
+                                <label for="id_password">пароль</label>
+                                <input type="password" name="password" id="id_password"
+                                       value="{{ top_signin_form.password.value }}" alt="пароль" class="error"/>
+                            {% else %}
+                                <label for="id_password">пароль</label>
+                                {{ top_signin_form.password }}
+                            {% endif %}
+                        </li>
+                        <li class="buttons">
+                            <button type="submit" class="single_submit" name="top_login">Войти</button>
+                        </li>
+                        <!--<li class="pass_reset">
+                            <a href="/password_reset">Забыли пароль?</a>
+                        </li>-->
+                    <div style="display:none"><input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{{ PATH }}{% endif %}"/></div>
+                    </ul>
+
+                </form>
+        </div>
+        {% ifnotequal PATH '/' %}
+        <div class="top_signup_block" {% if not signup_error %} style="display:none;"{% endif %}>
+            <form action="/" method="POST" class="top_signup_form">
+                {% csrf_token %}
+                    <ul>
+                        <li>
+                            {% if email_error or signup_form.email.errors %}
+                                <p class="signupemailerror">Неправильный логин!</p>
+                                {{ signup_form.email.errors }}
+                                <label for="id_email">логин (e-mail)</label>
+                                <input type="text" name="email" value="{{ signup_form.email.value }}"
+                                       id="id_email" alt="логин (e-mail)" class="error"/>
+                            {% else %}
+                                <p class="signupemailerror"></p>
+                                <label for="id_email">логин (e-mail)</label>
+                                {{ signup_form.email }}
+                            {% endif %}
+                        </li>
+                        <li>
+                            <p class="promoerror"></p>
+                            {% if signup_form.promo_code.errors %}
+                                {{ signup_form.promo_code.errors }}
+                                <label for="id_promo_code">Промо код (если есть)</label>
+                                <input type="text" name="promo_code" id="id_promo_code"
+                                       value="{{ signup_form.promo_code.value }}" alt="Промо код (если есть)" class="error"/>
+                            {% else %}
+                                <label for="id_promo_code">Промо код (если есть)</label>
+                                {{ signup_form.promo_code }}
+                            {% endif %}
+                        </li>
+                        <li class="buttons">
+                            <button type="submit" class="single_submit" name="signup">Зарегистрироваться</button>
+                        </li>
+                    </ul>
+
+                </form>
+        </div>
+        {% endifnotequal %}
+        {% else %}
+        <ul class="authorization">
+            <li class="firstlast login"><a href="/logout">Выйти</a></li>
+        </ul>
+        <ul class="user_info">
+            <li class="mail_indication"><a href="/messages"><span class="label">Сообщения</span></a></li>
+            <li class="username"><a href="/settings">{% if user.email %}{{ user.email }}{% else %}Профиль {% endif %}</a></li>
+        </ul>
+
+        {% endif %}
+        {% endblock %}
+    </div>
+ {% endblock %}
+ </div><!-- .navigation -->

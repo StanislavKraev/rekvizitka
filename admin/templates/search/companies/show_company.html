@@ -1,0 +1,111 @@
+{% extends "abaseauthorized.html" %}
+{% block extra_head %}
+    <link href="/media/style/ad/main.css?v=10000" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+    <h3><a href="/search/">Поиск, просмотр</a> &mdash; Просмотр компании {{ company.rek_id }}</h3>
+    <div id="company_data">
+    <a href="manage/" title="Редактировать" class="button">Редактировать</a>
+    <table>
+        <tr>
+            <td>Rek ID</td><td>{{ company.rek_id }}</td>
+        </tr>
+        <tr>
+            <td>Бренд</td><td>{{ company.brand_name }}</td>
+        </tr>
+        <tr>
+            <td>Статус</td><td style="background-color:{{ company.account_status_color }}">
+                    {{ company.account_status }}
+                </td>
+        </tr>
+        <tr>
+            <td>ОПФ</td><td>{{ company.inc_form_str }}</td>
+        </tr>
+        <tr>
+            <td>Краткое наименование</td><td>{{ company.short_name }}</td>
+        </tr>
+        <tr>
+            <td>Полное наименование</td><td>{{ company.full_name }}</td>
+        </tr>
+        <tr>
+            <td>Описание</td><td>{{ company.description }}</td>
+        </tr>
+        <tr>
+            <td>Лого</td><td style="padding: 0">
+                    <img src="{% if company.logo_url %}{{ company.logo_url }}{% else %}/media/i/default_image.png{% endif %}">
+                </td>
+        </tr>
+        <tr>
+            <td>ИНН</td><td>{{ company.inn }}</td>
+        </tr>
+        <tr>
+            <td>КПП</td><td>{{ company.kpp }}</td>
+        </tr>
+        <tr>
+            <td>Вид деятельности</td><td>{{ company.category_text }}</td>
+        </tr>
+        <tr>
+            <td>Создана</td><td>{{ company.date_creation }}</td>
+        </tr>
+        <tr>
+            <td>Основана</td><td>{{ company.date_established }}</td>
+        </tr>
+        <tr>
+            <td>Штат</td><td>{{ company.staff_size }}</td>
+        </tr>
+        <tr>
+            <td>Ген. директор</td><td>{{ company.gen_director }}</td>
+        </tr>
+        <tr>
+            <td>Главный бухгалтер</td><td>{{ company.chief_accountant }}</td>
+        </tr>
+    </table>
+        <a href="manage/" title="Редактировать" class="button">Редактировать</a>
+
+    <h4>Сотрудники</h4>
+    {% for employee in employees %}
+        <table>
+            <tr>
+                <td>Имя</td><td>{{ employee.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Фамилия</td><td>{{ employee.second_name }}</td>
+            </tr>
+            <tr>
+                <td>Отчество</td><td>{{ employee.middle_name }}</td>
+            </tr>
+            <tr>
+                <td>Должность</td><td>{{ employee.title }}</td>
+            </tr>
+            <tr>
+                <td>Телефон</td><td>{{ employee.phone }}</td>
+            </tr>
+            <tr>
+                <td>Аватар</td><td><img src="{{ employee.avatar }}"/></td>
+            </tr>
+            <tr>
+                <td>Мужского пола</td><td>{% if employee.male %} + {% endif %}</td>
+            </tr>
+            <tr>
+                <td>Дата рождения</td><td>{{ employee.birth_date }}</td>
+            </tr>
+            <tr>
+                <td>Статус профиля</td><td>{{ employee.profile_status }}</td>
+            </tr>
+            <tr>
+                <td>Удален</td><td>{% if employee.deleted %}+{% endif %}</td>
+            </tr>
+            <tr>
+                <td>id</td><td>{{ employee.id }}</td>
+            </tr>
+            <tr>
+                <td>user_id</td><td>{{ employee.user_id }}</td>
+            </tr>
+            <tr>
+                <td>user_email</td><td>{{ employee.email }}</td>
+            </tr>
+        </table>
+    {% endfor %}
+    </div>
+{% endblock %}

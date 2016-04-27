@@ -1,0 +1,18 @@
+{% extends "base_portal.html" %}
+{% load js_utils portal %}
+
+{% block doc_end %}
+    <script type="text/javascript">
+        YUI.add('main_portal__init', function(Y,result) {
+            Y.ProfileAppSettings_init = {{ profile_module_init }};
+
+            Y.MainPortal__init = {
+                mainPortlet : "{% client_mod_ver "profile_application" %}",
+                mainPortletClass : "ProfileApplication"
+            };
+        });
+
+    </script>
+    {% block preload_app %}{% endblock %}
+    {{ block.super }}
+{% endblock %}

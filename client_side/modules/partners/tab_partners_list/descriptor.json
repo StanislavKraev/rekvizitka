@@ -1,0 +1,8 @@
+{
+    "name" : "tab_partners_list",
+    "locales" : [ "en", "ru" ],
+    "templates" : [ "content", "listelem", "editsettings" ],
+    "css" : [ "tab_partners_list", "editsettings" ],
+    "requires" : [ "pagination", "utils" ],
+    "ver" : "1.0.17"
+}

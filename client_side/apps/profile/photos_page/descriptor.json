@@ -1,0 +1,5 @@
+{
+    "name" : "profile_photos_app",
+    "requires" : ["profile_application", "profile_photos_view"],
+    "ver" : "1.0.2"
+}

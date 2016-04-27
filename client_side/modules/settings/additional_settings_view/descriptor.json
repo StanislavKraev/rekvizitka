@@ -1,0 +1,7 @@
+{
+    "name" : "profile_additional_settings_view",
+    "src" : "additional_settings_view",
+    "templates" : ["content"],
+    "css" : ["additional_settings_view"],
+    "ver" : "1.0.4"
+}
